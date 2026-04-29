@@ -26,8 +26,24 @@ const PRODUCTS = [
 const fmt = n => '₪' + n.toLocaleString('he-IL');
 const $ = id => document.getElementById(id);
 
+const PRODUCT_DESCS = {
+  1: 'אוזניות Premium עם ביטול רעשים אקטיבי, 30 שעות סוללה, וחיבור Bluetooth 5.3. מושלמות לעבודה, ספורט, ונסיעות.',
+  2: 'שעון חכם עם מסך AMOLED, GPS מובנה, מדידת דופק 24/7, ו-7 ימי סוללה. עמיד למים עד 50 מטר.',
+  3: 'מצלמה מקצועית 24MP עם וידאו 4K/60fps, OIS, ועדשה ייחודית. אידיאלית ליוצרי תוכן ולצלמים.',
+  4: 'נעלי ספורט עם סוליית Air לספיגת זעזועים מירבית. קלות במיוחד, מתאימות לריצה ולספורט יומיומי.',
+  5: 'תיק עור איטלקי אמיתי, בעבודת יד. נרתיק פנים מרוחב, רצועה מתכווננת, מגיע בשלושה צבעים.',
+  6: 'משקפיים בסגנון Retro עם עדשות UV400 ומסגרת טיטניום קלה. הגנה מלאה מהשמש בסטייל.',
+  7: 'מנורה חכמה עם 16M צבעים, בקרה מהאפליקציה, ותאימות ל-Alexa ו-Google Home.',
+  8: 'מכונת אספרסו מקצועית עם לחץ 15 בר, קיטור לחלב, ושעון מתזמן. קפה מושלם כל בוקר.',
+  9: 'שמיכה מיקרופייבר רכה במיוחד, 300GSM, מתאימה לכל עונות השנה. ניתנת לכביסה במכונה.',
+  10: 'סט 5 מוצרי טיפוח: ניקוי, טונר, סרום ויטמין C, קרם לח ו-SPF50. לכל סוגי העור.',
+  11: 'בושם פרחוני עדין עם נוטי Jasmine, Rose ו-Sandalwood. עמידות גבוהה - 8-10 שעות.',
+  12: 'מסכת זהב 24K לטיפוח ולחות עמוקה. 30 דקות = עור זוהר ורענן. לכל סוגי העור.',
+};
+
 // ===== State =====
 let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 let activeFilter = 'all';
 
 // ===== Render =====
@@ -41,16 +57,15 @@ function renderCategories() {
   `).join('');
 }
 
-function renderProducts() {
-  const list = activeFilter === 'all'
-    ? PRODUCTS
-    : PRODUCTS.filter(p => p.cat === activeFilter);
-  $('productsGrid').innerHTML = list.map(p => `
-    <article class="product">
+function renderProducts(list = null) {
+  const items = list || (activeFilter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === activeFilter));
+  $('productsGrid').innerHTML = items.map(p => `
+    <article class="product fade-in" onclick="openModal(${p.id})">
       <div class="product-img">
         ${p.icon}
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
         ${p.ai ? `<span class="ai-pick">✨ AI Pick</span>` : ''}
+        <span class="wish-ico" onclick="event.stopPropagation(); toggleWish(${p.id})">${wishlist.includes(p.id) ? '❤️' : '🤍'}</span>
       </div>
       <div class="product-body">
         <span class="product-cat">${categoryName(p.cat)}</span>
@@ -64,11 +79,12 @@ function renderProducts() {
             ${p.old ? `<span class="product-old">${fmt(p.old)}</span>` : ''}
             <span class="product-price">${fmt(p.price)}</span>
           </div>
-          <button class="add-btn" onclick="addToCart(${p.id})" aria-label="הוסף לעגלה">+</button>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})" aria-label="הוסף לעגלה">+</button>
         </div>
       </div>
     </article>
   `).join('');
+  observeFadeIns();
 }
 
 const categoryName = id => (CATEGORIES.find(c => c.id === id) || {}).name || id;
@@ -157,6 +173,98 @@ function checkout() {
 }
 $('cartBtn').addEventListener('click', openCart);
 
+// ===== Wishlist =====
+function toggleWish(id) {
+  if (wishlist.includes(id)) {
+    wishlist = wishlist.filter(x => x !== id);
+    toast('הוסר מהמועדפים');
+  } else {
+    wishlist.push(id);
+    toast('❤️ נוסף למועדפים');
+  }
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  renderProducts();
+}
+
+// ===== Search =====
+function openSearch() {
+  $('searchBar').classList.add('show');
+  setTimeout(() => $('searchInput').focus(), 100);
+}
+function closeSearch() {
+  $('searchBar').classList.remove('show');
+  $('searchInput').value = '';
+  $('searchResults').innerHTML = '';
+}
+$('searchBtn').addEventListener('click', openSearch);
+$('searchInput').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) { $('searchResults').innerHTML = ''; return; }
+  const results = PRODUCTS.filter(p =>
+    p.name.includes(q) || categoryName(p.cat).includes(q)
+  );
+  $('searchResults').innerHTML = results.length
+    ? results.map(p => `
+        <div class="search-item" onclick="closeSearch(); openModal(${p.id})">
+          <span class="si-ico">${p.icon}</span>
+          <div><h4>${p.name}</h4><span>${fmt(p.price)}</span></div>
+        </div>
+      `).join('')
+    : '<div class="search-empty">לא נמצאו מוצרים</div>';
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeSearch(); closeModal(); }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+});
+
+// ===== Product Modal =====
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  const desc = PRODUCT_DESCS[id] || '';
+  const inWish = wishlist.includes(id);
+  $('modalBody').innerHTML = `
+    <div class="modal-img">${p.icon}</div>
+    <div class="modal-info">
+      <span class="product-cat">${categoryName(p.cat)}</span>
+      <h2>${p.name}</h2>
+      <div class="product-rating">
+        ${'★'.repeat(Math.round(p.rating))}${'☆'.repeat(5 - Math.round(p.rating))}
+        <span>(${p.reviews} ביקורות)</span>
+      </div>
+      <p class="modal-desc">${desc}</p>
+      <div class="modal-price-row">
+        <span class="modal-price">${fmt(p.price)}</span>
+        ${p.old ? `<span class="modal-old">${fmt(p.old)}</span>` : ''}
+        ${p.old ? `<span class="badge" style="margin:0">חסכון ${fmt(p.old - p.price)}</span>` : ''}
+      </div>
+      <div class="modal-tags">
+        ${p.ai ? '<span class="modal-tag">✨ AI Pick</span>' : ''}
+        ${p.tag ? `<span class="modal-tag">${p.tag}</span>` : ''}
+        <span class="modal-tag">🚚 משלוח חינם</span>
+        <span class="modal-tag">↩️ 30 יום החזרה</span>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="addToCart(${p.id}); closeModal()">הוסף לעגלה</button>
+        <button class="wishlist-btn ${inWish ? 'active' : ''}" onclick="toggleWish(${p.id}); this.classList.toggle('active')" aria-label="מועדפים">${inWish ? '❤️' : '🤍'}</button>
+      </div>
+    </div>
+  `;
+  $('productModal').classList.add('show');
+  $('modalOverlay').classList.add('show');
+}
+function closeModal() {
+  $('productModal').classList.remove('show');
+  $('modalOverlay').classList.remove('show');
+}
+
+// ===== Scroll Fade-in =====
+function observeFadeIns() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+}
+
 // ===== Toast =====
 let toastTimer;
 function toast(msg) {
@@ -210,3 +318,4 @@ function addMsg(text, role) {
 renderCategories();
 renderProducts();
 updateCartUI();
+observeFadeIns();
