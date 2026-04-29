@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Commerce - חנות חכמה מבוססת בינה מלאכותית</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">◈</span>
+        <span>AI Commerce</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#products">מוצרים</a>
+        <a href="#categories">קטגוריות</a>
+        <a href="#deals">מבצעים</a>
+        <a href="#about">אודות</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="חיפוש">🔍</button>
+        <button class="icon-btn" id="cartBtn" aria-label="עגלה">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge">✨ מופעל ע״י בינה מלאכותית</span>
+        <h1>קניות חכמות יותר<br/><span class="gradient-text">בעזרת AI</span></h1>
+        <p>גלו מוצרים שנבחרו עבורכם אישית בעזרת אלגוריתמי המלצה מתקדמים. חיפוש סמנטי, תמחור דינמי, והמלצות שמכירות אתכם.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">קנו עכשיו</a>
+          <button class="btn btn-ghost" onclick="openChat()">דברו עם העוזר החכם</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>50K+</strong><span>מוצרים</span></div>
+          <div><strong>98%</strong><span>שביעות רצון</span></div>
+          <div><strong>24/7</strong><span>תמיכת AI</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="float-card card-1">🎧<span>אוזניות חכמות</span><b>₪399</b></div>
+        <div class="float-card card-2">⌚<span>שעון חכם</span><b>₪899</b></div>
+        <div class="float-card card-3">📱<span>טלפון Pro</span><b>₪3,499</b></div>
+        <div class="orb"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories" class="categories">
+    <div class="container">
+      <h2 class="section-title">קטגוריות פופולריות</h2>
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <section id="products" class="products">
+    <div class="container">
+      <div class="products-header">
+        <div>
+          <h2 class="section-title">מומלץ עבורך</h2>
+          <p class="section-sub">המלצות מותאמות אישית מבוססות AI</p>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-filter="all">הכל</button>
+          <button class="filter" data-filter="electronics">אלקטרוניקה</button>
+          <button class="filter" data-filter="fashion">אופנה</button>
+          <button class="filter" data-filter="home">בית</button>
+          <button class="filter" data-filter="beauty">יופי</button>
+        </div>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <section id="deals" class="deals">
+    <div class="container deals-inner">
+      <div class="deal-text">
+        <span class="badge badge-light">⚡ מבצע מיוחד</span>
+        <h2>חיסכון של עד 40% עם AI</h2>
+        <p>המערכת שלנו מנתחת מיליוני נתונים ומציעה לכם את המחיר הטוב ביותר ברגע הנכון.</p>
+        <a href="#products" class="btn btn-primary">לכל המבצעים</a>
+      </div>
+      <div class="deal-visual">
+        <div class="discount-circle">
+          <span class="discount-num">40%</span>
+          <span class="discount-label">הנחה</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="features">
+    <div class="container">
+      <h2 class="section-title">למה AI Commerce?</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>המלצות חכמות</h3>
+          <p>אלגוריתם שלומד מההעדפות שלכם ומציע בדיוק את מה שאתם צריכים.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <h3>משלוח מהיר</h3>
+          <p>משלוח חינם תוך 24 שעות לכל הארץ בהזמנה מעל ₪199.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <h3>תשלום מאובטח</h3>
+          <p>הצפנה ברמה בנקאית. הפרטים שלכם בידיים בטוחות.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>תמיכה 24/7</h3>
+          <p>צ׳אט בוט חכם שעונה תוך שניות, כל שעה ביום.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="#" class="logo logo-light">
+          <span class="logo-mark">◈</span>
+          <span>AI Commerce</span>
+        </a>
+        <p>חנות העתיד, היום.</p>
+      </div>
+      <div>
+        <h4>קישורים</h4>
+        <a href="#products">מוצרים</a>
+        <a href="#categories">קטגוריות</a>
+        <a href="#deals">מבצעים</a>
+      </div>
+      <div>
+        <h4>שירות</h4>
+        <a href="#">צור קשר</a>
+        <a href="#">משלוחים</a>
+        <a href="#">החזרות</a>
+      </div>
+      <div>
+        <h4>הירשמו לניוזלטר</h4>
+        <form class="newsletter" onsubmit="event.preventDefault(); alert('תודה שנרשמת!')">
+          <input type="email" placeholder="האימייל שלך" required />
+          <button type="submit">שלח</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 AI Commerce. כל הזכויות שמורות.</span>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head">
+      <h3>העגלה שלך</h3>
+      <button class="icon-btn" onclick="closeAll()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">סה״כ: <strong id="cartTotal">₪0</strong></div>
+      <button class="btn btn-primary btn-full" onclick="checkout()">לתשלום</button>
+    </div>
+  </aside>
+
+  <!-- AI Chat -->
+  <button class="chat-fab" onclick="openChat()" aria-label="עוזר חכם">💬</button>
+  <aside class="chat-window" id="chatWindow">
+    <div class="chat-head">
+      <div>
+        <strong>עוזר AI</strong>
+        <span class="chat-status">● מחובר</span>
+      </div>
+      <button class="icon-btn" onclick="closeChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-bot">שלום! אני העוזר החכם שלך. איך אוכל לעזור?</div>
+    </div>
+    <form class="chat-input" onsubmit="sendMessage(event)">
+      <input type="text" id="chatInput" placeholder="כתוב הודעה..." autocomplete="off" />
+      <button type="submit">➤</button>
+    </form>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
