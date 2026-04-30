@@ -207,4 +207,39 @@ GitHub: botbikamordehai2-sketch
 | 5. Bet Scanner | $200-$1,000 |
 
 ### 🔑 Credentials (לא להכניס לקוד!)
-- עדכון אחרון ל-MASTER_CONTEXT: 30/04/2026 22:00
+- GitHub Token (CLOUD-PUSH): שמור ב-`C:\Users\gfdh5555\tokens.txt`
+- Hostinger Referral: `REFERRALCODE=4GUBOTBIKXVG`
+- עדכון אחרון ל-MASTER_CONTEXT: 01/05/2026 01:20
+
+---
+
+## 📋 סיכום סשן — 01/05/2026 00:00-01:20 (Cline)
+
+### 🛒 רכישות Hostinger
+
+| רכישה | עלות | Invoice |
+|--------|------|---------|
+| **commotiai.com** (1 year) | $9.99 | — |
+| **commotiai.org** (1 year) | $7.99 | — |
+| **commotiai.online** (1 year) | $0.99 | — |
+| **Business Hosting** (1 month) | $18.99 | H_42408073 |
+| **Daily Backup** | $0.00 | — |
+| **סה"כ** | **$22.56 (~83 ₪)** | |
+
+### 🌐 איך 3 הדומיינים ישמשו (כל 9 הפרויקטים)
+| דומיין | פלטפורמה | שימוש |
+|--------|----------|-------|
+| **commotiai.com** | WordPress (Hostinger) | בלוג ICT/Trading ראשי, דף נחיתה, affiliate |
+| **commotiai.org** | WordPress (Hostinger) | חומרים חינוכיים, newsletters, ארכיון |
+| **commotiai.online** | GitHub Pages | Publify, Bet Scanner dashboard, Dropship Machine |
+
+### 🔧 מה נבנה בסשן הזה
+- ✅ `affiliate_engine.py` — 6 תוכניות: IC Markets, FTMO, TradingView, Blueberry, Amazon, **Hostinger** (`REFERRALCODE=4GUBOTBIKXVG`)
+- ✅ `affiliate_output/` רץ — HTML footer, CSV tracker, Newsletter archive
+- ✅ GitHub Token `CLOUD-PUSH` שמור ב-`tokens.txt`
+- 🟡 **WordPress** — ממתין להתקנה על commotiai.com (Business Hosting פעיל)
+
+### 🎯 הצעד הבא
+1. Hostinger → **Create site** → WordPress → `commotiai.com`
+2. בונים דף נחיתה + 5 פוסטים + affiliate footer
+3. DNS + GitHub Pages subdomains
