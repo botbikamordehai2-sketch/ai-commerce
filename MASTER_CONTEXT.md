@@ -393,3 +393,50 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 - Theme: GeneratePress / Kadence
 - Plugin: MailPoet (Newsletter)
 - הדבק תוכן מ-00_WORDPRESS_SETUP_GUIDE.md
+
+---
+
+## ✅ TASK CHECKLIST — 01/05/2026 02:50 (BEFORE NEXT SESSION)
+
+### 🔴 שלב 1 — WordPress: Settings → Home (2 דקות)
+- [ ] כנס ל-https://commotiai.com/wp-admin
+- [ ] Settings → Reading
+- [ ] בחר "A static page"
+- [ ] Homepage: בחר "Home"
+- [ ] Save Changes
+- [ ] ודא: פתח commotiai.com — תראה את דף הבית
+
+### 🔴 שלב 2 — MetaEditor: Compile 7 Bots (10 דקות)
+נתיב: `C:\Users\gfdh5555\AppData\Roaming\MetaQuotes\Terminal\81A933A9AFC5DE3C23B15CAB19C63850\MQL5\Experts\`
+
+- [ ] MT5 → F4 (MetaEditor)
+- [ ] Compile (F7) — Portfolio_Manager.mq5
+- [ ] Compile (F7) — Trend_Lab.mq5
+- [ ] Compile (F7) — BollingerRSI_Lab.mq5
+- [ ] Compile (F7) — Session_Breakout_Lab.mq5
+- [ ] Compile (F7) — EMA_Cross_Lab.mq5
+- [ ] Compile (F7) — MACD_Lab.mq5
+- [ ] Compile (F7) — Stoch_Lab.mq5
+- [ ] ודא: 0 errors, 0 warnings בכל קובץ
+
+### 🟡 שלב 3 — Paste 10 WordPress Files (30 דקות)
+- [ ] Pages → Add New → Paste 01_homepage_landing.html
+- [ ] Posts → Add New → Paste 02_post_ict_silver_bullet.html
+- [ ] Posts → Add New → Paste 03_post_ai_trading_2026.html
+- [ ] Pages → Add New → Paste 04_category_trading.html
+- [ ] Pages → Add New → Paste 05_category_scanner.html
+- [ ] Pages → Add New → Paste 06_category_betting.html
+- [ ] Pages → Add New → Paste 07_category_templates.html
+- [ ] Pages → Add New → Paste 08_category_aitools.html
+- [ ] Pages → Add New → Paste 09_category_ict_smc.html
+- [ ] Paste 10_affiliate_footer.html at bottom of every post
+
+### 🟡 שלב 4 — Affiliate Links (5 דקות)
+- [ ] עדכן YOUR_ID ב-10_affiliate_footer.html (FTMO, TradingView, IC Markets, Blueberry, Amazon)
+- [ ] Hostinger — REFERRALCODE כבר מוכן ✅
+
+### 🟢 שלב 5 — Ko-fi + Telegram VIP (10 דקות)
+- [ ] https://ko-fi.com → Sign Up
+- [ ] עדכן KO_FI_LINK ב-telegram_vip.py
+- [ ] צור ערוצי Telegram (@motitrades_free, @motitrades_vip)
+- [ ] הרץ telegram_vip.py
