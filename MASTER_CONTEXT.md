@@ -243,3 +243,95 @@ GitHub: botbikamordehai2-sketch
 1. Hostinger → **Create site** → WordPress → `commotiai.com`
 2. בונים דף נחיתה + 5 פוסטים + affiliate footer
 3. DNS + GitHub Pages subdomains
+
+---
+
+## 📋 סיכום סשן — 01/05/2026 06:00-11:00 (Claude Code)
+
+### 🤖 FTMO Account 2 — Portfolio of Bots
+
+**חשבון חדש:** `1513254752` — FTMO-Demo Hedge $100,000
+**מטרה:** Lab לניסוי 5 אסטרטגיות שונות במקביל
+
+### 🏗️ בוטים שנבנו (MQL5 Experts — FTMO Terminal)
+| קובץ | אסטרטגיה | נכס | ריסק |
+|------|-----------|-----|------|
+| `Portfolio_Manager.mq5` | **מנהל מרכזי** — PORTFOLIO_LOCKED | EURUSD M1 | — |
+| `Trend_Lab.mq5` | Trend + EMA20/50 + ADX>25 + H4 Bias | XAUUSD H1 | 0.3% |
+| `BollingerRSI_Lab.mq5` | Mean Reversion — BB+RSI | EURUSD H1 | 0.3% |
+| `Session_Breakout_Lab.mq5` | London Open — Asian Range Breakout | GBPUSD M15 | 0.3% |
+| `EMA_Cross_Lab.mq5` | Trend — EMA9×EMA21 Crossover | GBPUSD H1 | 0.3% |
+| `MACD_Lab.mq5` | MACD + MA200 Filter | לבחירה H1 | 0.3% |
+| `Stoch_Lab.mq5` | Stochastic Overbought/Oversold | לבחירה H1 | 0.3% |
+
+**נתיב:** `C:\Users\gfdh5555\AppData\Roaming\MetaQuotes\Terminal\81A933A9AFC5DE3C23B15CAB19C63850\MQL5\Experts\`
+
+### 🧠 ארכיטקטורה — Portfolio מבוסס Global Variables
+```
+Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
+כל בוט → בודק GlobalVariableGet("PORTFOLIO_LOCKED") לפני כניסה
+
+חוקי נעילה:
+- הפסד יומי > 4% → נועל הכל
+- Drawdown כולל > 9% → נועל הכל
+- 3+ פוזיציות באותו כיוון → Correlation Lock
+- 5+ פוזיציות פתוחות → נועל
+```
+
+### 📐 5 משפחות אסטרטגיה (Multi-Model Research)
+| משפחה | Hypothesis | פעיל כש |
+|--------|-----------|---------|
+| Trend Following | שוק ממשיך בכיוון | ADX > 25 |
+| Mean Reversion | מחיר חוזר לממוצע | ADX < 20 |
+| Breakout | פריצת רמה = המשך | אחרי דחיסה |
+| Session-Based | London Open = נזילות | 07:00-09:00 |
+| Multi-TF | H4 כיוון + H1 כניסה | Confluence |
+
+### 📋 Hands-Off Protocol (מוטי חתם)
+- ✅ מותר: לצפות בלוגים שבועית
+- ✅ מותר: שינוי הגדרות בסוף שבוע בלבד
+- ❌ אסור: לסגור עסקה ידנית בגלל "תחושה"
+- ❌ אסור: לכבות בוט במהלך drawdown < 5%
+- ❌ אסור: להגדיל לוטים אחרי רצף הצלחות
+
+### 🎯 הצעד הבא
+1. MetaEditor (F4) → קמפל את כל 6 הקבצים (F7, 0 errors)
+2. Refresh Navigator → גרור Portfolio_Manager על EURUSD M1
+3. גרור כל בוט על הגרף המתאים לו
+4. RSI_MA20_Bot נשאר על חשבון 1 ($10K) — לא נוגעים
+
+---
+
+## 📋 סיכום סשן — 01/05/2026 01:00-02:00 (Cline) — WordPress + Affiliate
+
+### 🛒 רכישות Hostinger
+| רכישה | עלות | Invoice |
+|--------|------|---------|
+| commotiai.com (1 year) | $9.99 | — |
+| commotiai.org (1 year) | $7.99 | — |
+| commotiai.online (1 year) | $0.99 | — |
+| Business Hosting (1 month) | $18.99 | H_42408073 |
+| **סה"כ** | **$22.56 (~83 ₪)** | |
+
+### 🔧 WordPress Live
+- **URL:** commotiai.com/wp-admin
+- **Host:** Hostinger Business (Frankfurt), Premium Plan
+- **תוכן מוכן:** `wordpress_content/` — 3 קבצים
+  - `01_homepage_landing.html` — Hero + Stats + Newsletter
+  - `02_post_ict_silver_bullet.html` — ICT Silver Bullet Setup
+  - `03_post_ai_trading_2026.html` — AI Trading evolution
+- **Affiliate:** `affiliate_engine.py` — 6 תוכניות, Hostinger REFERRALCODE=4GUBOTBIKXVG
+
+### 🌐 3 דומיינים
+| דומיין | שימוש |
+|--------|-------|
+| commotiai.com | WordPress בלוג ICT/Trading ראשי |
+| commotiai.org | חומרים חינוכיים, newsletters |
+| commotiai.online | GitHub Pages — Publify, dashboards |
+
+### 🎯 צעד הבא
+1. Paste WordPress content → Pages / Posts
+2. Settings → Reading → Static Page → Home
+3. Install theme (GeneratePress / Kadence) + Newsletter plugin (MailPoet)
+4. Paste affiliate_footer.html to every post
+5. DNS + GitHub Pages subdomains
