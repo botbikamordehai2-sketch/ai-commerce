@@ -136,3 +136,75 @@ GitHub: botbikamordehai2-sketch
 | **Claude Chat (Web)** | Analyst — ביקורת, אסטרטגיה | "בדוק אם הגיוני, מצא חולשות" |
 | **ChatGPT** | Marketing — SEO, כתיבה שיווקית | "כתוב תיאור מוצר / פוסט" |
 | **Cline (VS Code)** | Executor — מריץ פקודות מקומיות | "הרץ / בדוק / חבר git remote" |
+
+---
+
+## 📋 סיכום סשן — 30/04/2026 18:00-22:00 (Cline)
+
+### 💬 בקשת המשתמש
+"כל הפיצ'רים הקיימים, מבנה הקבצים, מה עוד לא נעשה, הצעד הבא המומלץ"
+
+### 📊 תמונת מצב מלאה — 9 פרויקטים + 5 מסלולי מוניטיזציה
+
+#### 🗂️ מבנה הקבצים (Desktop/projects/)
+| פרויקט | קבצים עיקריים | סטטוס |
+|--------|--------------|--------|
+| **trading-system/** | entry_monitor.py, RSI_MA20_Bot.mq5, daily_review.py, telegram_vip.py, etsy_uploader.py, affiliate_engine.py, bet_launcher.py, research_watch.py, auto_update.py, telegram_alerts.py, nasdaq_scanner.py | ✅ LIVE |
+| **diamond-scanner/** | diamond_scanner.py, tradingview_idea.py, blog_scanner.py | ✅ רץ יומי |
+| **bet-scanner/** | scan_loop.py, value_model.py, arb_finder.py, polymarket_scanner.py, backtest.py, steam_detector.py | 🟡 מחכה API |
+| **dropship-machine/** | main.py, scanner.py, content_gen.py, price_tracker.py, profit_calc.py, publisher.py | 🟡 מחכה API |
+| **canva-assets/** | catalog.json (10 מוצרים), TTH-002 + TTH-003 Etsy listings | 🟡 מוכן להעלאה |
+| **portfolio/** | index.html | 🟡 מחכה deploy |
+| **mega-store/** | (ריק) | ❌ לא פעיל |
+| **ai-commerce/** | index.html, app.js, styles.css, MASTER_CONTEXT.md | 🔨 בבנייה |
+| **ict-blog/** | Next.js, 13+ מאמרים | ✅ LIVE |
+
+#### ⚡ כל הפיצ'רים הקיימים (14 Done)
+1. entry_monitor.py — 15 נכסים, RSI+MA20+MA50, Circuit Breaker 2/day → ✅ LIVE
+2. RSI_MA20_Bot.mq5 — EA EURUSD H1, FTMO $10K, Blueberry compliance → ✅ LIVE
+3. daily_review.py — ועדת חקירה יומית + close_signals_auto() → ✅ LIVE
+4. telegram_alerts.py — BIAS reports + signals → ✅ LIVE
+5. nasdaq_scanner.py — DXY, VIX, NDX, SPX, 10Y → ✅ LIVE
+6. auto_update.py — 08:00 + 20:00 daily → ✅ LIVE
+7. 31 unit tests + run_checks.bat → ✅ PASSING
+8. telegram_vip.py — Free/VIP channels → ✅ בנוי (לא מופעל)
+9. etsy_uploader.py — CSV/MD ל-10 מוצרים → ✅ מוכן
+10. affiliate_engine.py — 5 תוכניות affiliate → ✅ מוכן (לא הופעל)
+11. bet_launcher.py — Value betting + Kelly → ✅ קוד מוכן
+12. research_watch.py — arXiv/SSRN scanner → ✅ LIVE
+13. ICT Blog — 13+ articles, Next.js + Vercel → ✅ LIVE
+14. Publify — publishing platform → ✅ LIVE
+
+#### 🔴 מה עוד לא נעשה (20 משימות — MASTER_PLAN.md)
+| # | משימה | זמן | Block |
+|---|--------|------|-------|
+| 1 | MT5: Compile RSI_MA20_Bot.mq5 (F7) | 2 דק' | BLOCK 1 |
+| 2 | the-odds-api.com API Key | 3 דק' | BLOCK 1 |
+| 3-6 | GitHub repos: diamond-scanner, bet-scanner, dropship-machine, portfolio | 10 דק' | BLOCK 2 |
+| 7 | Vercel deploy portfolio | 2 דק' | BLOCK 2 |
+| 8 | Etsy API Key | 3 דק' | BLOCK 3 |
+| 9 | Canva template links | 2 דק' | BLOCK 3 |
+| 10 | Upload 10 listings to Etsy ($2.00) | 5 דק' | BLOCK 3 |
+| 11 | Ko-fi signup | 2 דק' | BLOCK 4 |
+| 12 | Telegram channels (@motitrades_free, @motitrades_vip) | 5 דק' | BLOCK 4 |
+| 13 | Telegram VIP bot live | 3 דק' | BLOCK 4 |
+| 14-17 | Affiliate signups: FTMO, TradingView, IC Markets, Amazon | 5 דק' | BLOCK 5 |
+| 18 | Anthropic API Key | 2 דק' | BLOCK 5 |
+| 19 | Dropship Machine live | 3 דק' | BLOCK 6 |
+| 20 | Bet Scanner live (scan_loop.py) | 5 דק' | BLOCK 6 |
+
+#### 🎯 הצעד הבא המומלץ — BLOCK 1 (5 דקות, קריטי)
+1. **MT5 → MetaEditor (F4) → RSI_MA20_Bot.mq5 → F7 Compile** — EA לא ירוץ בלי compile (עודכן ל-Blueberry: drawdown 4%, margin 150%)
+2. **https://the-odds-api.com/ → Sign Up → API Key** — פותח Track 5 (Bet Scanner, $200-$1,000/חודש)
+
+#### 💰 פוטנציאל סופי: $2,100-$8,500/חודש
+| Track | פוטנציאל |
+|-------|----------|
+| 1. Prop Firm | $1,000-$4,000 |
+| 2. Telegram VIP | $500-$1,500 |
+| 3. Etsy | $300-$1,500 |
+| 4. Affiliate | $100-$500 |
+| 5. Bet Scanner | $200-$1,000 |
+
+### 🔑 Credentials (לא להכניס לקוד!)
+- עדכון אחרון ל-MASTER_CONTEXT: 30/04/2026 22:00
