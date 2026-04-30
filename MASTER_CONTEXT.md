@@ -18,6 +18,8 @@
 3. **אותו מודל לא בונה וגם מבקר** — Claude Code בונה, Claude Chat מבקר
 4. **עדכן MASTER_CONTEXT.md בסוף כל סשן משמעותי**
 5. **Macro is King** — קונטקסט מאקרו קודם לדפוסים טכניים
+6. **ארכיטקטורת 4 הקומות:** 1.קרקוע (NotebookLM), 2.חקירה (Gemini), 3.מומחיות (Gems), 4.ביצוע (Workspace)
+7. **הנחיית AIM:** בכל משימה: Actor (שחקן), Input (קלט), Mission (משימה)
 
 ---
 
@@ -136,6 +138,37 @@ GitHub: botbikamordehai2-sketch
 | **Claude Chat (Web)** | Analyst — ביקורת, אסטרטגיה | "בדוק אם הגיוני, מצא חולשות" |
 | **ChatGPT** | Marketing — SEO, כתיבה שיווקית | "כתוב תיאור מוצר / פוסט" |
 | **Cline (VS Code)** | Executor — מריץ פקודות מקומיות | "הרץ / בדוק / חבר git remote" |
+
+---
+
+## 🏗️ 4-Floor Intelligence Architecture
+
+| Floor | Tool | Job | שלך |
+|-------|------|-----|------|
+| **1** | **NotebookLM** | Grounding — דיוק, קבלות, ניתוח PDFs ומחקר ללא הזיות | העלה MASTER_CONTEXT.md + research |
+| **2** | **Gemini** | Exploration — 2M tokens, Deep Research, 5 שלבים | שאל שאלות, חפש דפוסים |
+| **3** | **Gems** | Specialists — "Moti's Macro Sentinel" | ראה מטה |
+| **4** | **Workspace** | Execution — Docs, Gmail, Drive, Meet, VS Code | ביצוע בפועל |
+
+### 🧠 AIM Framework (לכל משימה)
+| A | Actor | מי אתה? (שחקן) |
+| I | Input | מה קיבלת? (קלט, נתונים) |
+| M | Mission | מה לעשות? (משימה ברורה) |
+
+---
+
+### 8. Moti's Macro Sentinel (Gem) ✅ LIVE
+**פלטפורמה:** Gemini Gems (Floor 3)
+**תפקיד:** Portfolio & Strategy Architect
+**הגדרה:**
+```
+Actor: Portfolio & Strategy Architect — אנליסט ראשי ICT/SMC
+Input:  MASTER_CONTEXT.md (9 פרויקטים), NASDAQ Scanner, 5 שלבים
+Mission: Daily Bias, ועדת חקירה, ניהול רב-ערוצי, ניתוח Risk
+Risk:   FTMO/Blueberry 4% DD יומי, Hedge $100K
+Tone:   עברית מקצועית, Level 999, RISK ON/OFF
+```
+**Knowledge base:** `MASTER_CONTEXT.md` מוזן כבסיס ידע קבוע
 
 ---
 
@@ -335,3 +368,28 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 3. Install theme (GeneratePress / Kadence) + Newsletter plugin (MailPoet)
 4. Paste affiliate_footer.html to every post
 5. DNS + GitHub Pages subdomains
+
+---
+
+## 🔄 SYNC — Cline → Claude Code (01/05 02:15)
+
+**WordPress עלה** על commotiai.com (Hostinger Business, Frankfurt) ✅
+
+### WordPress Content Pack — סטטוס מלא
+| # | קובץ | סטטוס |
+|---|------|--------|
+| 01 | homepage_landing.html | ✅ |
+| 02 | post_ict_silver_bullet.html | ✅ |
+| 03 | post_ai_trading_2026.html | ✅ תוקן |
+| 04-09 | category pages x6 | ✅ Claude Code |
+| 10 | affiliate_footer.html | ✅ Cline |
+| 11 | post_ftmo_week1.html | 🟡 Claude Code בונה |
+| 12 | post_dropship_guide.html | 🟡 Claude Code בונה |
+| 13 | post_diamond_scanner.html | 🟡 Claude Code בונה |
+| 14 | post_kelly_criterion.html | 🟡 Claude Code בונה |
+
+### נותר להגדרה ב-WordPress (מוטי)
+- Settings → Reading → Static Page → Home
+- Theme: GeneratePress / Kadence
+- Plugin: MailPoet (Newsletter)
+- הדבק תוכן מ-00_WORDPRESS_SETUP_GUIDE.md
