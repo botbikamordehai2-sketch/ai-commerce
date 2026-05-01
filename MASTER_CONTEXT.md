@@ -612,6 +612,12 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 ### 🎯 Current Status
 | Path | Progress |
 |------|----------|
-| **Path 3** — API Keys | 🟢 Anthropic ✅ | 🟡 Etsy + the-odds pending |
+| **Path 3** — API Keys | 🟢 Anthropic ✅ | � the-odds ✅ (found in `.env`) | 🟡 Etsy pending |
 | **Path 2** — Liquidity Sweeps | 🟡 Sweep_SilverBullet.mq5 next |
 | **Path 1** — Macro Sync | 🟡 After Path 3 complete |
+
+### 🔑 API Keys — Updated `.env`
+- **Anthropic:** Added to `tv_webhook/.env` — Dropship Machine ready
+- **the-odds-api:** Already in `.env` (line 12) — Bet Scanner ready ✅
+- **Dropship Machine:** `main.py` reads `ANTHROPIC_API_KEY` from env
+- **Bet Scanner:** `bet_launcher.py` reads `ODDS_API_KEY` from env
