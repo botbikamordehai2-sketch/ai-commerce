@@ -1,0 +1,192 @@
+<!-- ============================================
+     COMMOTI AI — Trading Monitor Dashboard
+     Host on: commotiai.online (GitHub Pages)
+     ============================================ -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commoti AI | Trading Monitor</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f172a; color:#e2e8f0; font-family:'Segoe UI', sans-serif; }
+  .header { background:linear-gradient(135deg,#1e3a5f,#0f172a); padding:32px 24px; text-align:center; border-bottom:1px solid #1e3a5f; }
+  .header h1 { color:#60a5fa; font-size:2.2em; }
+  .header p { color:#94a3b8; margin-top:8px; }
+
+  .container { max-width:1100px; margin:0 auto; padding:24px; }
+
+  .account-card { background:#1e293b; border:1px solid #334155; border-radius:12px; margin-bottom:24px; overflow:hidden; }
+  .account-header { padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; }
+  .account-header h2 { color:#60a5fa; font-size:1.3em; }
+  .status-badge { padding:4px 14px; border-radius:20px; font-size:0.85em; font-weight:600; }
+  .live { background:#065f46; color:#4ade80; }
+  .pending { background:#78350f; color:#fbbf24; }
+
+  .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:16px 24px; border-bottom:1px solid #334155; }
+  .stat { text-align:center; }
+  .stat .value { font-size:1.5em; font-weight:700; color:#60a5fa; }
+  .stat .label { font-size:0.8em; color:#94a3b8; }
+
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:right; padding:12px 16px; background:#0f172a; color:#94a3b8; font-size:0.85em; border-bottom:2px solid #334155; }
+  td { padding:12px 16px; border-bottom:1px solid #1e293b; font-size:0.9em; }
+  tr:hover td { background:#1e3a5f; }
+  td.status { font-weight:600; }
+  td.status.running { color:#4ade80; }
+  td.status.stopped { color:#f87171; }
+
+  .footer { text-align:center; padding:24px; color:#64748b; font-size:0.8em; }
+  .footer a { color:#60a5fa; }
+
+  .refresh-bar { display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background:#1e293b; border-bottom:1px solid #334155; }
+  .refresh-bar span { color:#94a3b8; font-size:0.85em; }
+  .refresh-bar strong { color:#4ade80; }
+
+  @media (max-width:768px) {
+    .stats-row { grid-template-columns:repeat(2,1fr); }
+    th, td { padding:8px; font-size:0.8em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 Commoti AI — Trading Monitor</h1>
+  <p>FTMO Accounts &bull; Real-Time Bot Status &bull; Risk Tracking</p>
+</div>
+
+<div class="container">
+
+  <!-- ======== Account 1: FTMO $10K ======== -->
+  <div class="account-card">
+    <div class="account-header">
+      <h2>🏦 Account 1 — FTMO Challenge $10,000</h2>
+      <span class="status-badge live">Live</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="value">$10,000</div><div class="label">Balance</div></div>
+      <div class="stat"><div class="value" id="acc1-dd">0.0%</div><div class="label">Drawdown</div></div>
+      <div class="stat"><div class="value" id="acc1-pnl">$0.00</div><div class="label">P&L Today</div></div>
+      <div class="stat"><div class="value" id="acc1-trades">0/2</div><div class="label">Trades (CB)</div></div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>בוט</th><th>אסטרטגיה</th><th>זוג</th><th>TF</th><th>Risk</th><th>סטטוס</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>RSI_MA20_Bot</strong></td>
+          <td>RSI + MA20 + MA50 confluence</td>
+          <td>EURUSD</td>
+          <td>H1</td>
+          <td>1.0%</td>
+          <td class="status running">▶️ Running</td>
+        </tr>
+        <tr>
+          <td><strong>Entry Monitor</strong></td>
+          <td>15 assets scanner (Python)</td>
+          <td>Multi</td>
+          <td>15min</td>
+          <td>2/day CB</td>
+          <td class="status running">▶️ Running</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="refresh-bar">
+      <span>🛡️ Circuit Breaker: <strong>Max 2 trades/day</strong> | DD Guard: <strong>4% daily</strong></span>
+      <span>Account: <strong>1513203570</strong></span>
+    </div>
+  </div>
+
+  <!-- ======== Account 2: FTMO Demo Hedge $100K ======== -->
+  <div class="account-card">
+    <div class="account-header">
+      <h2>🧪 Account 2 — FTMO Demo Hedge $100,000</h2>
+      <span class="status-badge pending">Pending (Compile)</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="value">$100,000</div><div class="label">Balance</div></div>
+      <div class="stat"><div class="value" id="acc2-dd">0.0%</div><div class="label">Drawdown</div></div>
+      <div class="stat"><div class="value" id="acc2-pnl">$0.00</div><div class="label">P&L Today</div></div>
+      <div class="stat"><div class="value" id="acc2-positions">0</div><div class="label">Open Positions</div></div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>בוט</th><th>אסטרטגיה</th><th>זוג</th><th>TF</th><th>Risk</th><th>סטטוס</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Portfolio_Manager</strong></td>
+          <td>Global Locker + Risk Manager</td>
+          <td>EURUSD</td>
+          <td>M1</td>
+          <td>—</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>Trend_Lab</strong></td>
+          <td>EMA20/50 + ADX>25 + H4 Bias</td>
+          <td>XAUUSD</td>
+          <td>H1</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>BollingerRSI_Lab</strong></td>
+          <td>Mean Reversion — BB+RSI</td>
+          <td>EURUSD</td>
+          <td>H1</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>Session_Breakout_Lab</strong></td>
+          <td>London Open — Asian Range</td>
+          <td>GBPUSD</td>
+          <td>M15</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>EMA_Cross_Lab</strong></td>
+          <td>EMA9×EMA21 Crossover</td>
+          <td>EURUSD</td>
+          <td>H1</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>MACD_Lab</strong></td>
+          <td>MACD + MA200 Filter</td>
+          <td>XAUUSD</td>
+          <td>H1</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+        <tr>
+          <td><strong>Stoch_Lab</strong></td>
+          <td>Stochastic Overbought/Oversold</td>
+          <td>—</td>
+          <td>H1</td>
+          <td>0.3%</td>
+          <td class="status stopped">⏸️ Needs Compile</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="refresh-bar">
+      <span>🔒 Locks: <strong>PORTFOLIO_LOCKED</strong> | Max 4% DD | Max 9% Total | Correlation Lock</span>
+      <span>Account: <strong>1513254752</strong></span>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Commoti AI — Trading Dashboard | Updated: <strong>01/05/2026</strong></p>
+  <p><a href="https://commotiai.com">Blog</a> | <a href="https://github.com/botbikamordehai2-sketch">GitHub</a> | Disclaimer: Not financial advice</p>
+</div>
+
+</body>
+</html>
