@@ -502,11 +502,21 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 **MCP Config:** `C:\Users\gfdh5555\.claude\mcp.json` — server: tradingview
 
 ### 🔴 נותר לפעול
-- [ ] הורד TradingView Desktop מ-tradingview.com/desktop
-- [ ] הפעל TradingView Desktop → CDP יתחבר
+- [x] הורד TradingView Desktop ← **הותקן**
+- [ ] הפעל TradingView Desktop ← CDP לא מותקן / path לא נמצא
 - [ ] MetaEditor: קמפל 7 בוטים (F7)
 - [ ] WordPress: Settings → Reading → Static Page → Home
 - [ ] עדכן YOUR_ID בקישורי affiliate
+
+### ✅ Research Scanner (סשן חדש 15:00)
+- `research_scanner.py` — סורק 10 מאמרים אקדמיים יומית, מחלץ יהלומים לבוטים, שולח לטלגרם
+- `run_research_scanner.bat` — Task Scheduler
+- Task Scheduler: **ResearchScanner** — 08:40 יומית
+- Packages: `pymupdf`, `beautifulsoup4`, `pypdf`
+
+### ✅ Live Simulation
+- `live_sim.py` + `backtester.py` — סימולציית מסחר חיה
+- Dashboard מעודכן ב-GitHub Pages
 
 ---
 
