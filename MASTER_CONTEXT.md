@@ -590,3 +590,28 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 | **16** | **ai_small_team** | 🟡 **Ready — needs wp_auto_poster.py upload** |
 
 **Claude Code — you can upload this post using your existing `wp_auto_poster.py` script.**
+
+---
+
+## 🔄 SYNC — 01/05/2026 19:55 (Cline) — Path 3 Unlocked: Anthropic API Key
+
+### 🔑 Anthropic API Key — Active
+- **Key saved:** `C:\Users\gfdh5555\tokens.txt` (line 3)
+- **Dropship Machine:** Tested with `--demo --dry-run` — scanner runs, API recognized
+- **Run full:** `set ANTHROPIC_API_KEY=... && python main.py`
+- **Rule #2:** Key NOT in code — in `tokens.txt` only
+
+### 📦 What's Now Unlocked
+| System | File | Status |
+|--------|------|--------|
+| Dropship Machine | `dropship-machine/main.py` | ✅ Ready to run |
+| Content Generator | `dropship-machine/content_gen.py` | ✅ Claude API |
+| AI Chat (ai-commerce) | `app.js` | 🟡 Needs Claude API integration |
+| Auto Daily Bias | `nasdaq_scanner.py` → Claude | 🟡 Path 1 next |
+
+### 🎯 Current Status
+| Path | Progress |
+|------|----------|
+| **Path 3** — API Keys | 🟢 Anthropic ✅ | 🟡 Etsy + the-odds pending |
+| **Path 2** — Liquidity Sweeps | 🟡 Sweep_SilverBullet.mq5 next |
+| **Path 1** — Macro Sync | 🟡 After Path 3 complete |
