@@ -507,3 +507,35 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 - [ ] MetaEditor: קמפל 7 בוטים (F7)
 - [ ] WordPress: Settings → Reading → Static Page → Home
 - [ ] עדכן YOUR_ID בקישורי affiliate
+
+---
+
+## 📋 SYNC — 01/05/2026 13:30 (Cline) — Dashboard + Live Data
+
+### ✅ Trading Monitor Dashboard Built
+- **File:** `monitor_dashboard.html` — 2 FTMO accounts, 9 bots, dark RTL
+- **Deployed:** `gh-pages` branch — `https://botbikamordehai2-sketch.github.io/ai-commerce/`
+- **⚠️ Need:** GitHub Settings → Pages → Source: `gh-pages` → Save (משתמש)
+
+### 📡 Live Data Options
+| Method | Data | Cost |
+|--------|------|------|
+| **MT5 API (Python `MetaTrader5` package)** | Real tick data, P&L, positions, accounts | Free |
+| TradingView Webhook | Alerts only (one-way) | Free (exists: `tv_webhook`) |
+| yfinance | Stocks/ETFs, 15-min delay | Free (exists: `entry_monitor.py`) |
+
+**Next:** Build Python script to connect MT5 API → JSON → Dashboard live updates
+
+### 📊 Claude Code Updates (12:00-17:30)
+- ✅ 6 WordPress posts live on commotiai.com (via REST API)
+- ✅ `wp_auto_poster.py` — auto-upload script
+- ✅ TradingView MCP Jackson installed (CDP port 9222, real-time chart access)
+- 🟡 Need: TradingView Desktop download
+
+### 🎯 Combined Priority
+| # | Task | Owner | Time |
+|---|------|-------|------|
+| 1 | GitHub Pages: gh-pages → Save | 🧑 Moti | 1 min |
+| 2 | Download TradingView Desktop | 🧑 Moti | 5 min |
+| 3 | MetaEditor: F7 Compile 7 bots | 🧑 Moti | 10 min |
+| 4 | WordPress: Settings → Home | 🧑 Moti | 2 min |
