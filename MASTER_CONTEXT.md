@@ -442,3 +442,37 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 - [ ] עדכן KO_FI_LINK ב-telegram_vip.py
 - [ ] צור ערוצי Telegram (@motitrades_free, @motitrades_vip)
 - [ ] הרץ telegram_vip.py
+
+---
+
+## 📋 SYNC — 01/05/2026 03:30 (Cline) — Email + MCP + Checklist
+
+### ✅ Email Setup Complete
+- **Email:** `moti@commotiai.com`
+- **Sender Name:** Moti | Commoti AI
+- **Host:** Hostinger Business (Free Email tier)
+- **Signature:** Moti — Commoti AI — Trading & AI Blog
+
+### ✅ Hostinger MCP Connected
+- **Server:** `.mcp.json` — 118 tools via stdio
+- **API Token:** שמור ב-`tokens.txt`
+- **Capabilities:** Deploy VPS, DNS, WordPress management, monitoring, backups
+
+### 📋 Remaining Priority Tasks (מוטי — Manual)
+| # | משימה | ⏱️ | Priority |
+|---|-------|:---:|:---:|
+| 1 | WordPress: Settings → Reading → Static Page → Home | 2 דק' | 🔴 |
+| 2 | MetaEditor: F7 Compile 7 bots (FTMO Account 2) | 10 דק' | 🔴 |
+| 3 | Paste 10 content files into WordPress | 30 דק' | 🟡 |
+| 4 | Update YOUR_ID in affiliate links | 5 דק' | 🟡 |
+| 5 | Ko-fi signup → Telegram VIP | 10 דק' | 🟢 |
+
+### 📊 Git Commits Tonight
+| Commit | Time | What |
+|--------|------|------|
+| 5376c59 | 22:00 | Full system review |
+| 59e8504 | 01:20 | Domains + affiliate |
+| 4a766de | 02:00 | FTMO bots + WordPress Live |
+| 008a95f | 02:45 | 4-Floor Architecture + Gem |
+| 8012029 | 02:50 | Task checklist |
+| 1ea4b96 | 03:10 | Hostinger API + MCP |
