@@ -1,4 +1,10 @@
-# MASTER_CONTEXT — מוטי | עדכון 29/04/2026
+זיכרון עודכן:
+
+WordPress: 16 פוסטים חיים, commotiai.com פעיל
+odds-api key: סומן כ-✅ (קיים ב-tokens.txt)
+FVG Sentinel Bot #8-9 תועד עם כל הפרטים
+MASTER_CONTEXT URL שמור
+Priority הבאה: MetaEditor → F7 → קמפל Sweep_SilverBullet.mq5 (כולל DetectFVG # MASTER_CONTEXT — מוטי | עדכון 29/04/2026
 **הדבק את זה בתחילת כל שיחה עם Claude Code / Claude Chat / ChatGPT / Cline**
 
 ---
@@ -613,7 +619,7 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 | Path | Progress |
 |------|----------|
 | **Path 3** — API Keys | 🟢 Anthropic ✅ | 🟢 the-odds ✅ | � Etsy ✅ | 🟢 Ko-fi+PayPal ✅ |
-| **Path 2** — Liquidity Sweeps | 🟡 Sweep_SilverBullet.mq5 next |
+| **Path 2** — Liquidity Sweeps | ✅ Sweep_SilverBullet.mq5 built (266 lines) | 🟡 Needs F7 Compile |
 | **Path 1** — Macro Sync | 🟡 After Path 2 |
 
 ### 🔑 All API Keys — Collectively Active
@@ -625,6 +631,44 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 | Ko-fi + PayPal | Browser | Telegram VIP ($29/month) |
 
 **Path 3 = 100% Complete.** 3 API keys + 1 payment gateway. 🎯
+
+
+---
+
+## 🔄 SYNC — Cline → Claude Code (01/05 21:30) — Path 2: Sweep_SilverBullet + Full Status
+
+### ✅ Path 3 — COMPLETE (Commit 187d3e2)
+4/4 API Keys + Payment Gateway:
+- Anthropic — Dropship Machine, Content Gen
+- the-odds-api — Bet Scanner ($200-$1,000/חודש)
+- Etsy — 10 Canva Templates ($300-$1,500/חודש)
+- Ko-fi + PayPal — Telegram VIP ($500-$1,500/חודש)
+
+### ✅ Path 2 — Sweep_SilverBullet.mq5
+**File:** `MQL5/Experts/Sweep_SilverBullet.mq5` (266 lines)
+**Logic:** Liquidity Sweep Detection → MSS Confirmation → Entry
+**Killzone:** 10-11 AM NY | **Pair:** EURUSD H1 | **Risk:** 0.3%
+**Portfolio:** Checks `PORTFOLIO_LOCKED` before entry
+
+### 🤖 Account 2 — 8 Bots (all need F7 Compile)
+1. Portfolio_Manager | 2. Trend_Lab | 3. BollingerRSI_Lab
+4. Session_Breakout_Lab | 5. EMA_Cross_Lab | 6. MACD_Lab
+7. Stoch_Lab | **8. Sweep_SilverBullet (NEW)**
+
+### 🎯 Priority Tasks (Claude Code / Moti)
+- [ ] MetaEditor → F7 Compile ALL 8 bots (0 errors each)
+- [ ] WordPress: Settings → Reading → Static Page → Home
+- [ ] GitHub Pages: Settings → gh-pages → Save
+- [ ] Post #16 — upload to WordPress via wp_auto_poster.py
+
+### 📊 Git Commits (15+ total)
+| Commit | Time | What |
+|--------|------|------|
+| 187d3e2 | 21:13 | Path 3 COMPLETE |
+| 6c29df2 | 19:55 | Anthropic API Key active |
+| cc802ff | 17:40 | 25X Productivity Dashboard |
+| 60018fc | 17:35 | 4 AI Agents + Contract Reader |
+| 4f5ed8a | 20:28 | the-odds discovered + Etsy |
 
 ### 🔑 API Keys — Updated `.env`
 - **Anthropic:** Added to `tv_webhook/.env` — Dropship Machine ready
