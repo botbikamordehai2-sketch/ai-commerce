@@ -37,6 +37,20 @@
   td.status.running { color:#4ade80; }
   td.status.stopped { color:#f87171; }
 
+  .sim-card { background:#1e293b; border:1px solid #7c3aed; border-radius:12px; margin-bottom:24px; overflow:hidden; }
+  .sim-header { padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #7c3aed; background:#1e1b4b; }
+  .sim-header h2 { color:#a78bfa; font-size:1.3em; }
+  .sim-badge { padding:4px 14px; border-radius:20px; font-size:0.85em; font-weight:600; background:#4c1d95; color:#c4b5fd; }
+
+  .blog-card { background:#1e293b; border:1px solid #be185d; border-radius:12px; margin-bottom:24px; overflow:hidden; }
+  .blog-header { padding:16px 24px; border-bottom:1px solid #be185d; background:#1a0a14; }
+  .blog-header h2 { color:#f472b6; font-size:1.3em; }
+  .blog-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:10px; padding:16px 24px; }
+  .blog-link { background:#0f172a; border:1px solid #334155; border-radius:8px; padding:12px 16px; }
+  .blog-link a { color:#f9a8d4; text-decoration:none; font-size:0.9em; }
+  .blog-link a:hover { color:#f472b6; }
+  .blog-link .date { color:#64748b; font-size:0.75em; margin-top:4px; }
+
   .footer { text-align:center; padding:24px; color:#64748b; font-size:0.8em; }
   .footer a { color:#60a5fa; }
 
@@ -104,7 +118,7 @@
   <div class="account-card">
     <div class="account-header">
       <h2>🧪 Account 2 — FTMO Demo Hedge $100,000</h2>
-      <span class="status-badge pending">Pending (Compile)</span>
+      <span class="status-badge live">Live Simulation</span>
     </div>
     <div class="stats-row">
       <div class="stat"><div class="value">$100,000</div><div class="label">Balance</div></div>
@@ -123,7 +137,7 @@
           <td>EURUSD</td>
           <td>M1</td>
           <td>—</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>Trend_Lab</strong></td>
@@ -131,7 +145,7 @@
           <td>XAUUSD</td>
           <td>H1</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>BollingerRSI_Lab</strong></td>
@@ -139,7 +153,7 @@
           <td>EURUSD</td>
           <td>H1</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>Session_Breakout_Lab</strong></td>
@@ -147,15 +161,15 @@
           <td>GBPUSD</td>
           <td>M15</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>EMA_Cross_Lab</strong></td>
           <td>EMA9×EMA21 Crossover</td>
-          <td>EURUSD</td>
+          <td>GBPUSD</td>
           <td>H1</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>MACD_Lab</strong></td>
@@ -163,21 +177,68 @@
           <td>XAUUSD</td>
           <td>H1</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
         <tr>
           <td><strong>Stoch_Lab</strong></td>
           <td>Stochastic Overbought/Oversold</td>
-          <td>—</td>
+          <td>GBPUSD</td>
           <td>H1</td>
           <td>0.3%</td>
-          <td class="status stopped">⏸️ Needs Compile</td>
+          <td class="status running">🔵 Simulation</td>
         </tr>
       </tbody>
     </table>
     <div class="refresh-bar">
       <span>🔒 Locks: <strong>PORTFOLIO_LOCKED</strong> | Max 4% DD | Max 9% Total | Correlation Lock</span>
       <span>Account: <strong>1513254752</strong></span>
+    </div>
+  </div>
+
+
+  <!-- ======== Live Simulation Results ======== -->
+  <div class="sim-card">
+    <div class="sim-header">
+      <h2>🤖 Live Paper Trading Simulation — 7 Bots</h2>
+      <span class="sim-badge">Running 24/7</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="value" style="color:#a78bfa">$100,000</div><div class="label">Virtual Account</div></div>
+      <div class="stat"><div class="value" style="color:#a78bfa">$100,116</div><div class="label">Equity (3mo backtest)</div></div>
+      <div class="stat"><div class="value" style="color:#a78bfa">+0.12%</div><div class="label">Return</div></div>
+      <div class="stat"><div class="value" style="color:#a78bfa">46.9%</div><div class="label">Win Rate</div></div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Bot</th><th>Strategy</th><th>Pair</th><th>Trades (3mo)</th><th>Win Rate</th><th>PnL</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>MACD_Lab</strong></td><td>MACD + MA200</td><td>XAUUSD</td><td>45</td><td style="color:#4ade80">51.1%</td><td style="color:#4ade80">+0.34%</td></tr>
+        <tr><td><strong>BollingerRSI</strong></td><td>BB + RSI</td><td>EURUSD</td><td>64</td><td style="color:#4ade80">51.6%</td><td style="color:#94a3b8">-0.00%</td></tr>
+        <tr><td><strong>EMA_Cross</strong></td><td>EMA9 x EMA21</td><td>GBPUSD</td><td>58</td><td style="color:#94a3b8">50.0%</td><td style="color:#94a3b8">+0.00%</td></tr>
+        <tr><td><strong>Trend_EMA</strong></td><td>EMA20/50 + ADX</td><td>XAUUSD</td><td>118</td><td style="color:#fbbf24">49.2%</td><td style="color:#f87171">-0.14%</td></tr>
+        <tr><td><strong>Stoch_Lab</strong></td><td>Stochastic</td><td>GBPUSD</td><td>98</td><td style="color:#f87171">38.8%</td><td style="color:#f87171">-0.04%</td></tr>
+        <tr><td><strong>Session_Breakout</strong></td><td>London Open</td><td>GBPUSD</td><td>16</td><td style="color:#f87171">37.5%</td><td style="color:#f87171">-0.04%</td></tr>
+      </tbody>
+    </table>
+    <div class="refresh-bar">
+      <span>📡 Data: <strong>yfinance live</strong> | Check every: <strong>60s</strong> | Alerts: <strong>Telegram</strong></span>
+      <span>Script: <strong>live_sim.py</strong> | No MT5 needed</span>
+    </div>
+  </div>
+
+  <!-- ======== Blog ======== -->
+  <div class="blog-card">
+    <div class="blog-header">
+      <h2>📝 Blog — commotiai.com (6 Posts Live)</h2>
+    </div>
+    <div class="blog-links">
+      <div class="blog-link"><a href="https://commotiai.com/ftmo-challenge-week-1-rsima20-ea-real-results-lessons/">FTMO Challenge Week 1: RSI+MA20 EA — Real Results</a><div class="date">01/05/2026</div></div>
+      <div class="blog-link"><a href="https://commotiai.com/ict-silver-bullet-setup-2/">ICT Silver Bullet Setup</a><div class="date">01/05/2026</div></div>
+      <div class="blog-link"><a href="https://commotiai.com/how-ai-is-changing-retail-trading-in-2026/">How AI Is Changing Retail Trading in 2026</a><div class="date">01/05/2026</div></div>
+      <div class="blog-link"><a href="https://commotiai.com/diamond-scanner-how-we-rank-50-assets-every-morning/">Diamond Scanner: How We Rank 50+ Assets</a><div class="date">01/05/2026</div></div>
+      <div class="blog-link"><a href="https://commotiai.com/kelly-criterion-the-math-behind-optimal-position-sizing/">Kelly Criterion: Optimal Position Sizing</a><div class="date">01/05/2026</div></div>
+      <div class="blog-link"><a href="https://commotiai.com/ai-powered-dropshipping-in-2026-how-we-automated-product-research/">AI-Powered Dropshipping in 2026</a><div class="date">01/05/2026</div></div>
     </div>
   </div>
 
