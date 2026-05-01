@@ -503,10 +503,19 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 
 ### 🔴 נותר לפעול
 - [x] הורד TradingView Desktop ← **הותקן**
-- [ ] הפעל TradingView Desktop ← CDP לא מותקן / path לא נמצא
+- [ ] הפעל TradingView Desktop ← CDP — Microsoft Store גרסה חוסמת. צריך installer רגיל
 - [ ] MetaEditor: קמפל 7 בוטים (F7)
 - [ ] WordPress: Settings → Reading → Static Page → Home
 - [ ] עדכן YOUR_ID בקישורי affiliate
+
+### ✅ TradingView CDP — Lesson Learned
+- **Microsoft Store** חוסם CDP (Sandbox) — חייבים installer מ-`tradingview.com/desktop`
+- **live_sim.py + yfinance** ← נותן נתונים חיים טובים, לא חייבים TradingView
+
+### ✅ Post #16 — AI Small Team (Cline 16:15)
+- `16_post_ai_small_team.html` — "איך צוות של 10 אנשים משיג יותר ממחלקה שלמה"
+- AI: 5X לעובד טוב, 25X למצוין, 4 סוכני AI, AIM Framework
+- **Deployed:** GitHub + מוכן ל-WordPress
 
 ### ✅ Research Scanner (סשן חדש 15:00)
 - `research_scanner.py` — סורק 10 מאמרים אקדמיים יומית, מחלץ יהלומים לבוטים, שולח לטלגרם
@@ -549,3 +558,35 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 | 2 | Download TradingView Desktop | 🧑 Moti | 5 min |
 | 3 | MetaEditor: F7 Compile 7 bots | 🧑 Moti | 10 min |
 | 4 | WordPress: Settings → Home | 🧑 Moti | 2 min |
+
+---
+
+## 🔄 SYNC — Cline → Claude Code (01/05 16:30) — Post #16 + TV Lesson
+
+### 📝 Post #16 Added — AI Small Team (5X→25X Multiplier)
+**File:** `wordpress_content/16_post_ai_small_team.html`
+**Title:** "איך צוות של 10 אנשים משיג יותר ממחלקה שלמה: מודל ה-AI החדש"
+**Category:** AI & Business | **Tags:** AI, Automation, Small Teams, SEO
+
+**Content (5 sections):**
+- **25X Model:** 5X for good worker, 25X for excellent (Source: Aviv Nahum, Above Security)
+- **AI Negotiation:** Claude reads contracts, flags weak clauses
+- **AI Sales Script:** Preps culture-adapted pitch before meetings
+- **4 AI Agents Army:** Research → Draft → Fact-check → Edit (mirrors our 4-Floor Arch)
+- **Actionable:** 4 steps for tomorrow morning using AIM Framework
+
+**Format:** Hebrew RTL, Dark Mode, ready to paste into WordPress
+**Status:** Deployed to GitHub (`668f6b7`), NOT yet uploaded to WordPress
+
+### 📡 TradingView CDP — Root Cause Found
+- **Microsoft Store** version blocks CDP (Sandbox)
+- Need installer from `tradingview.com/desktop`
+- Meanwhile: `live_sim.py` + yfinance give good live data — no TV needed
+
+### 📊 WordPress Posts Status
+| # | File | Status |
+|---|------|--------|
+| 1-15 | Previous 6 + pages | ✅ Published by Claude Code |
+| **16** | **ai_small_team** | 🟡 **Ready — needs wp_auto_poster.py upload** |
+
+**Claude Code — you can upload this post using your existing `wp_auto_poster.py` script.**
