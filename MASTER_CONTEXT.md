@@ -241,8 +241,10 @@ Tone:   עברית מקצועית, Level 999, RISK ON/OFF
 
 ### 🔑 Credentials (לא להכניס לקוד!)
 - GitHub Token (CLOUD-PUSH): שמור ב-`C:\Users\gfdh5555\tokens.txt`
+- Hostinger API Token: שמור ב-`tokens.txt`
 - Hostinger Referral: `REFERRALCODE=4GUBOTBIKXVG`
-- עדכון אחרון ל-MASTER_CONTEXT: 01/05/2026 01:20
+- Hostinger MCP: `.mcp.json` ← 118 tools, stdio transport
+- עדכון אחרון ל-MASTER_CONTEXT: 01/05/2026 03:10
 
 ---
 
