@@ -612,9 +612,19 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 ### 🎯 Current Status
 | Path | Progress |
 |------|----------|
-| **Path 3** — API Keys | 🟢 Anthropic ✅ | � the-odds ✅ (found in `.env`) | 🟡 Etsy pending |
+| **Path 3** — API Keys | 🟢 Anthropic ✅ | 🟢 the-odds ✅ | � Etsy ✅ | 🟢 Ko-fi+PayPal ✅ |
 | **Path 2** — Liquidity Sweeps | 🟡 Sweep_SilverBullet.mq5 next |
-| **Path 1** — Macro Sync | 🟡 After Path 3 complete |
+| **Path 1** — Macro Sync | 🟡 After Path 2 |
+
+### 🔑 All API Keys — Collectively Active
+| Key | Source | System Unlocked |
+|-----|--------|-----------------|
+| Anthropic | `tokens.txt` + `.env` | Dropship Machine, Content Gen |
+| the-odds-api | `.env` | Bet Scanner, Value Betting |
+| Etsy | `tokens.txt` + `.env` | 10 Canva Templates ($9.99-$79.99) |
+| Ko-fi + PayPal | Browser | Telegram VIP ($29/month) |
+
+**Path 3 = 100% Complete.** 3 API keys + 1 payment gateway. 🎯
 
 ### 🔑 API Keys — Updated `.env`
 - **Anthropic:** Added to `tv_webhook/.env` — Dropship Machine ready
