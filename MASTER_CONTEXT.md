@@ -675,3 +675,35 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 - **the-odds-api:** Already in `.env` (line 12) — Bet Scanner ready ✅
 - **Dropship Machine:** `main.py` reads `ANTHROPIC_API_KEY` from env
 - **Bet Scanner:** `bet_launcher.py` reads `ODDS_API_KEY` from env
+
+---
+
+## 🔄 SYNC — Claude Code (01/05 23:00-00:00) — Social + Bot Refinements
+
+### 📱 Social Posts — `social_posts.md`
+- 3 ציוצים X (Twitter) — Daily Bias, System overview, Tactical insight
+- WIN_RATE: 48.8%, DD: 0.02% on paper
+- Volume filter added to block Inducement traps
+
+### 🤖 Account 2 Bot Status (8 bots)
+| # | Bot | Status |
+|---|-----|--------|
+| 1-7 | Portfolio_Manager → Stoch_Lab | 🟡 Needs F7 Compile |
+| 8 | Sweep_SilverBullet | 🟡 Needs F7 Compile |
+
+### 🔜 Claude Code Next Tasks
+- `telegram_vip.bat` → Task Scheduler
+- Bet Scanner activation
+- Dropship Machine demo run
+- Final git commit
+
+### 🔴 Still Remaining (Moti — Manual)
+- [ ] MetaEditor → F7 Compile 8 bots (10 min)
+- [ ] GitHub Pages: Settings → gh-pages → Save (1 min)
+
+### 📊 Git Commits (18+)
+| Commit | Time | What |
+|--------|------|------|
+| 187d3e2 | 21:13 | Path 3 COMPLETE |
+| f5886f9 | 21:30 | Path 2 SYNC |
+| 75a2cd7 | 21:47 | Path 1 — daily_bias_ai.py |
