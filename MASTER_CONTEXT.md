@@ -476,3 +476,34 @@ Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
 | 008a95f | 02:45 | 4-Floor Architecture + Gem |
 | 8012029 | 02:50 | Task checklist |
 | 1ea4b96 | 03:10 | Hostinger API + MCP |
+
+---
+
+## 📋 סיכום סשן — 01/05/2026 12:00-17:30 (Claude Code)
+
+### ✅ WordPress commotiai.com — 6 פוסטים חיים
+| ID | כותרת | URL |
+|----|--------|-----|
+| 6  | FTMO Challenge Week 1: RSI+MA20 EA | commotiai.com/ftmo-challenge-week-1... |
+| 11 | ICT Silver Bullet Setup | commotiai.com/ict-silver-bullet-setup-2/ |
+| 12 | How AI Is Changing Retail Trading in 2026 | commotiai.com/how-ai-is-changing-retail-trading-in-2026/ |
+| 13 | Diamond Scanner: How We Rank 50+ Assets | commotiai.com/diamond-scanner-how-we-rank-50-assets-every-morning/ |
+| 14 | Kelly Criterion: Optimal Position Sizing | commotiai.com/kelly-criterion-the-math-behind-optimal-position-sizing/ |
+| 15 | AI-Powered Dropshipping in 2026 | commotiai.com/ai-powered-dropshipping-in-2026-how-we-automated-product-research/ |
+
+**סקריפט אוטומציה:** `wp_auto_poster.py` — מעלה כל הפוסטים דרך WordPress REST API
+**WP App Password:** שמורה בסקריפט (mbotbika9@gmail.com)
+
+### ✅ TradingView MCP Jackson — מותקן
+**נתיב:** `C:\Users\gfdh5555\tradingview-mcp-jackson\`
+**מה זה:** קישור Claude Code ישירות ל-TradingView Desktop דרך CDP (port 9222)
+**יכולות:** קריאת גרף בזמן אמת, כתיבת Pine Script, הוספת אינדיקטורים בפקודה, morning_brief
+**rules.json:** מוגדר עם EURUSD, XAUUSD, GBPUSD, US100, USOIL + FTMO rules
+**MCP Config:** `C:\Users\gfdh5555\.claude\mcp.json` — server: tradingview
+
+### 🔴 נותר לפעול
+- [ ] הורד TradingView Desktop מ-tradingview.com/desktop
+- [ ] הפעל TradingView Desktop → CDP יתחבר
+- [ ] MetaEditor: קמפל 7 בוטים (F7)
+- [ ] WordPress: Settings → Reading → Static Page → Home
+- [ ] עדכן YOUR_ID בקישורי affiliate
