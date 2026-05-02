@@ -777,3 +777,33 @@ MetaEditor → F4 → F7 → 8 bots → 0 errors
 - DB: `welcome_bot.db` (SQLite)
 
 *עדכון אחרון: 03/05/2026*
+
+---
+
+## 🔄 SYNC — 03/05/2026 01:30 (Cline) — איחוד זיכרון + פריקת פרויקטים
+
+### ✅ מה נעשה
+- MASTER_CONTEXT.md נקרא מ-GitHub (`Invoke-RestMethod raw.githubusercontent.com`)
+- 3 קבצי משנה עודכנו: `projects_status.md`, `next_actions.md`, `decisions_log.md`
+- אסטרטגיית 4 בלוקים מוגדרת: Block 1 (קריטי), Block 2 (הכנסה מיידית), Block 3 (שבוע), Block 4 (אופטימיזציה)
+
+### 📊 תמונת מצב — 13 פרויקטים, 6 Revenue Tracks
+| Status | Projects |
+|--------|----------|
+| ✅ LIVE | Trading (2 FTMO), ICT Blog + WordPress (16 פוסטים), ai-commerce (gh-pages), Diamond Scanner, tv_webhook, Research Scanner, Portfolio Dashboard |
+| 🟢 Ready | Dropship Machine, Canva/Etsy, Bet Scanner, Dark Web Monitor, Telegram VIP, Affiliate Engine |
+| ⏳ API Pending | HIBP ($3.50/חודש) |
+
+### 🔴 מה קריטי עכשיו
+1. MetaEditor F7 → Compile 8 בוטים (10 דקות, מוטי)
+2. GitHub Pages ✅ פעיל
+3. `vip_funnel.py` ✅ הורץ — Action Plan פעיל
+
+### ✅ vip_funnel.py הורץ (03/05/2026)
+- Post 1-3 היום, 4-7 מחר, 8-10 יום 3
+- WhatsApp: שלח ל-3-5 אנשי קשר
+
+### 🔴 מחסום אחרון
+- [ ] MetaEditor → F7 → 8 בוטים (FTMO Account 2)
+
+*עדכון אחרון: 03/05/2026 AM*
