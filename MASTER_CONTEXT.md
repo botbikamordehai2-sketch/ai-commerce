@@ -739,3 +739,34 @@ MetaEditor → F4 → F7 → 8 bots → 0 errors
 | 187d3e2 | 21:13 | Path 3 COMPLETE |
 | f5886f9 | 21:30 | Path 2 SYNC |
 | 75a2cd7 | 21:47 | Path 1 — daily_bias_ai.py |
+
+---
+
+## 🔄 SYNC — 02/05/2026–03/05/2026 (Claude Code) — Dark Web Service + Pipeline
+
+### ✅ מה נבנה
+| קובץ | תיאור | סטטוס |
+|------|--------|--------|
+| `multi_strategy.py` שורה 172 | תוקן באג AttributeError (ev.get על string) | ✅ |
+| `setup_pipeline.bat` | הורץ — 4 Tasks פעילים ב-Task Scheduler | ✅ |
+| `darkweb_monitor.py` | בודק מיילים ב-HIBP API, שולח דוח לטלגרם VIP | ✅ מוכן |
+| `darkweb_promo.py` | פוסט פרסומי לערוץ FREE כל 3 ימים, 4 פוסטים בלופ | ✅ Task Scheduler 10:00 |
+| `darkweb_landing.html` | דף נחיתה cyber dark — עלה ל-commotiai.com/dark-web-check/ | ✅ LIVE |
+
+### 🌐 Dark Web Check — commotiai.com/dark-web-check/
+- דף חי, עיצוב dark, טופס FormSubmit → mbotbika9@gmail.com
+- Lead Magnet: בדיקה חינמית → הרשמה → ליד לערוץ VIP
+- Telegram promo אוטומטי כל 3 ימים
+
+### 🔴 נשאר
+- [ ] HIBP API Key ($3.50/חודש) — haveibeenpwned.com/API/Key → tokens.txt
+- [ ] MetaEditor → F7 → 8 בוטים
+- [ ] vip_funnel.py → הרץ
+
+### 💰 זרוע הכנסה חדשה: Dark Web Monitoring
+| שלב | זמן | הכנסה |
+|-----|-----|--------|
+| VIP Add-on ($10/חודש) | שבוע 1-3 | $50-200/חודש |
+| B2B Report (200-400 ₪/חודש) | חודש 1-2 | $300-750/חודש |
+
+*עדכון אחרון: 03/05/2026*
