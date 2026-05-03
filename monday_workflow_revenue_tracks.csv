@@ -1,0 +1,8 @@
+Track,Status,API_Key,Code_Ready,Launched,Revenue_Actual,Revenue_Target,Next_Action,Block,Dependencies,Owner,Last_Updated
+1_Prop_Firm,Waiting F7,✅ None,✅ 8 bots,⏳ No,$0,$1000-$4000,MetaEditor F7 Compile,BLOCK 1,Moti,03/05/2026
+2_Telegram_VIP,In Progress,✅ Ko-fi+PayPal,✅ vip_funnel.py,🟢 Post 1-3 sent,$0,$500-$1500,WhatsApp 3-5 contacts,BLOCK 2,Moti,03/05/2026
+3_Etsy_Canva,Ready,✅ Etsy API,✅ etsy_uploader.py,⏳ No,$0,$300-$1500,Upload 10 listings,BLOCK 2,Moti,03/05/2026
+4_Affiliate,Ready,✅ Hostinger,✅ affiliate_engine.py,⏳ No,$0,$100-$500,Update YOUR_ID + Global Footer,BLOCK 3,Moti,03/05/2026
+5_Bet_Scanner,Ready,✅ the-odds-api,✅ bet_launcher.py,⏳ No,$0,$200-$1000,python scan_loop.py,BLOCK 3,Moti,03/05/2026
+6_Dark_Web,Ready,⏳ HIBP $3.50,✅ darkweb_monitor.py,⏳ No,$0,$50-$750,Get HIBP API Key,BLOCK 2,Moti,03/05/2026
+7_Dropship,Ready,✅ Anthropic,✅ main.py,⏳ No,$0,$0-$500,python main.py dry-run,BLOCK 2,Moti,03/05/2026

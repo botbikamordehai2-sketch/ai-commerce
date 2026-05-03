@@ -1,0 +1,10 @@
+Bot,Account,Strategy,Asset,Timeframe,Risk,Status,Compiled,Last_Test,Win_Rate,Dependencies,Next_Action,Owner
+Portfolio_Manager,Account 2 ($100K),Global Manager - PORTFOLIO_LOCKED,EURUSD,M1,N/A,Ready,⏳ No,--,--,All other bots,Compile F7,Moti
+RSI_MA20_Bot,Account 1 ($10K),RSI + MA20 Filter,USDJPY,H1,0.3%,LIVE,✅ Yes,FTMO Challenge,48.8%,--,Leave running,Moti
+Trend_Lab,Account 2 ($100K),Trend + EMA20/50 + ADX>25 + H4 Bias,XAUUSD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+BollingerRSI_Lab,Account 2 ($100K),Mean Reversion - BB+RSI,EURUSD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+Session_Breakout_Lab,Account 2 ($100K),London Open - Asian Range Breakout,GBPUSD,M15,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+EMA_Cross_Lab,Account 2 ($100K),Trend - EMA9xEMA21 Crossover,GBPUSD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+MACD_Lab,Account 2 ($100K),MACD + MA200 Filter,TBD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+Stoch_Lab,Account 2 ($100K),Stochastic Overbought/Oversold,TBD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti
+Sweep_SilverBullet,Account 2 ($100K),Liquidity Sweep + MSS + FVG,EURUSD,H1,0.3%,Ready,⏳ No,--,50-65%,PORTFOLIO_LOCKED,Compile F7,Moti

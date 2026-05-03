@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מערכת ניהול פרויקטים — מוטי | ai-commerce</title>
+<style>
+:root {
+  --bg: #121212; --bg2: #1e1e1e; --bg3: #2a2a2a; --text: #e8e8e8; --text2: #999;
+  --accent: #5b9bd5; --green: #2ea043; --yellow: #d2991d; --red: #f85149;
+  --border: #333; --hover: #2d2d2d;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Segoe UI', system-ui, sans-serif; min-height:100vh; display:flex; }
+.sidebar { width:260px; min-width:260px; background:var(--bg2); border-left:1px solid var(--border); padding:16px 0; display:flex; flex-direction:column; }
+.sidebar-title { padding:4px 16px 16px; font-weight:800; font-size:16px; }
+.sidebar-nav { flex:1; }
+.sidebar-item { display:flex; align-items:center; gap:10px; padding:10px 18px; cursor:pointer; font-size:15px; color:var(--text2); transition:.15s; border:none; background:none; width:100%; text-align:right; font-family:inherit; }
+.sidebar-item:hover { background:var(--hover); color:var(--text); }
+.sidebar-item.active { background:var(--bg3); color:var(--text); font-weight:600; }
+.sidebar-icon { font-size:18px; }
+.sidebar-badge { margin-right:auto; background:var(--red); color:#fff; padding:2px 10px; border-radius:10px; font-size:12px; font-weight:700; }
+.sidebar-footer { padding:12px 18px; border-top:1px solid var(--border); font-size:13px; color:var(--text2); line-height:1.8; }
+.main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.topbar { display:flex; align-items:center; gap:12px; padding:12px 24px; border-bottom:1px solid var(--border); background:var(--bg); }
+.topbar-title { font-size:18px; font-weight:700; }
+.topbar-actions { margin-right:auto; display:flex; gap:8px; }
+.btn { padding:8px 18px; border-radius:6px; border:1px solid var(--border); background:var(--bg3); color:var(--text); cursor:pointer; font-size:14px; font-family:inherit; transition:.15s; white-space:nowrap; }
+.btn:hover { background:var(--hover); }
+.btn-primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn-primary:hover { background:#4a8ac4; }
+.content { flex:1; overflow-y:auto; padding:24px; }
+.stats-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-bottom:24px; }
+.stat-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:20px; }
+.stat-label { font-size:13px; color:var(--text2); margin-bottom:6px; }
+.stat-value { font-size:30px; font-weight:800; }
+.stat-sub { font-size:13px; color:var(--text2); margin-top:4px; }
+.table-wrap { border-radius:10px; border:1px solid var(--border); overflow:hidden; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:var(--bg2); padding:12px 16px; text-align:right; font-weight:700; color:var(--text2); font-size:13px; border-bottom:1px solid var(--border); white-space:nowrap; }
+td { padding:12px 16px; border-bottom:1px solid var(--border); font-size:14px; }
+tr.clickable { cursor:pointer; transition:.1s; }
+tr.clickable:hover td { background:var(--hover); }
+tr:last-child td { border-bottom:none; }
+.tag { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:10px; font-size:13px; font-weight:600; }
+.tag-green { background:#0d2b1a; color:#2ea043; }
+.tag-blue { background:#152236; color:#5b9bd5; }
+.tag-yellow { background:#251f0e; color:#d2991d; }
+.tag-red { background:#2a0f0f; color:#f85149; }
+.tag-gray { background:#222; color:#888; }
+.dot { width:8px; height:8px; border-radius:50%; }
+.dot-green{background:var(--green)}.dot-blue{background:var(--accent)}.dot-yellow{background:var(--yellow)}.dot-red{background:var(--red)}
+.msg { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:12px; }
+.msg-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.msg-avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.msg-name { font-weight:700; font-size:15px; }
+.msg-time { color:var(--text2); font-size:12px; }
+.msg-body { font-size:14px; line-height:1.7; color:var(--ccc); }
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:200; align-items:center; justify-content:center; }
+.modal-overlay.active { display:flex; }
+.modal-box { background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:32px; width:90%; max-width:640px; max-height:85vh; overflow-y:auto; }
+.modal-title { font-size:20px; font-weight:800; margin-bottom:24px; display:flex; align-items:center; gap:10px; }
+.modal-close { margin-right:auto; background:none; border:none; color:var(--text2); font-size:24px; cursor:pointer; padding:4px 10px; border-radius:4px; }
+.modal-close:hover { background:var(--hover); color:var(--text); }
+.modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.modal-field label { display:block; font-size:13px; color:var(--text2); margin-bottom:6px; }
+.modal-field .val { font-size:16px; font-weight:600; }
+.modal-section { margin-top:20px; }
+.modal-section h4 { font-size:14px; color:var(--text2); margin-bottom:10px; }
+.detail-list { list-style:none; }
+.detail-list li { padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; display:flex; justify-content:space-between; }
+.detail-list li:last-child { border:none; }
+.detail-list .lbl { color:var(--text2); }
+.detail-list .val { font-weight:600; }
+input, select, textarea { background:var(--bg3); border:1px solid var(--border); color:var(--text); border-radius:5px; padding:10px 14px; font-size:14px; font-family:inherit; width:100%; }
+textarea { min-height:60px; resize:vertical; }
+.form-row { display:flex; gap:10px; margin-bottom:14px; }
+.form-row > * { flex:1; }
+.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:20px; }
+.hidden { display:none; }
+@media(max-width:768px) { .sidebar { display:none; } .modal-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-title">🏠 ai-commerce</div>
+  <div class="sidebar-nav">
+    <button class="sidebar-item active" data-view="dashboard"><span class="sidebar-icon">📊</span> דשבורד</button>
+    <button class="sidebar-item" data-view="projects"><span class="sidebar-icon">📁</span> פרויקטים <span class="sidebar-badge">12</span></button>
+    <button class="sidebar-item" data-view="bots"><span class="sidebar-icon">🤖</span> בוטים <span class="sidebar-badge">9</span></button>
+    <button class="sidebar-item" data-view="tracks"><span class="sidebar-icon">💰</span> מסלולי רווח <span class="sidebar-badge">7</span></button>
+    <button class="sidebar-item" data-view="messages"><span class="sidebar-icon">💬</span> הודעות</button>
+    <button class="sidebar-item" data-view="memory"><span class="sidebar-icon">🧠</span> זיכרון</button>
+  </div>
+  <div class="sidebar-footer">
+    🔴 חסום: MetaEditor F7<br>
+    ⏰ תזכורת 08:00<br>
+    🟢 vip_funnel.py<br>
+    🟢 GitHub Pages
+  </div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <span class="topbar-title" id="pageTitle">📊 דשבורד</span>
+    <div class="topbar-actions">
+      <button class="btn btn-primary" onclick="openAddMessage()">➕ הודעה חדשה</button>
+      <button class="btn" onclick="openAddBot()">➕ בוט חדש</button>
+      <button class="btn" onclick="exportCSV()">📥 ייצוא CSV</button>
+    </div>
+  </div>
+  <div class="content" id="contentArea"></div>
+</div>
+
+<div class="modal-overlay" id="modalProject"><div class="modal-box" id="modalProjectContent"></div></div>
+
+<div class="modal-overlay" id="modalMsg">
+  <div class="modal-box">
+    <div class="modal-title">💬 הודעה חדשה <button class="modal-close" onclick="closeModal('modalMsg')">✕</button></div>
+    <div class="form-row"><input id="msgTitle" placeholder="כותרת..."></div>
+    <div class="form-row"><textarea id="msgBody" placeholder="תוכן..."></textarea></div>
+    <div class="form-row"><select id="msgCat"><option>⚠️ חסום</option><option>🤖 בוטים</option><option>💰 רווח</option><option>📁 פרויקט</option><option>✅ הושלם</option></select></div>
+    <div class="form-actions"><button class="btn" onclick="closeModal('modalMsg')">ביטול</button><button class="btn btn-primary" onclick="addMessage()">שלח</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalBot">
+  <div class="modal-box">
+    <div class="modal-title">🤖 בוט חדש <button class="modal-close" onclick="closeModal('modalBot')">✕</button></div>
+    <div class="form-row"><input id="botName" placeholder="שם בוט"></div>
+    <div class="form-row">
+      <select id="botAccount"><option>Account 1 ($10K)</option><option selected>Account 2 ($100K)</option></select>
+      <input id="botStrategy" placeholder="אסטרטגיה">
+    </div>
+    <div class="form-row">
+      <input id="botAsset" placeholder="נכס (EURUSD)">
+      <select id="botTF"><option>M1</option><option>M15</option><option selected>H1</option><option>H4</option></select>
+      <input id="botRisk" value="0.3" type="number" step="0.1" style="width:80px">
+    </div>
+    <div class="form-actions"><button class="btn" onclick="closeModal('modalBot')">ביטול</button><button class="btn btn-primary" onclick="addBot()">שמור בוט</button></div>
+  </div>
+</div>
+
+<script>
+const botDetailInfo={
+  "Portfolio_Manager":{logic:"Global Variable Check: PORTFOLIO_LOCKED. Daily DD>4% = lock all. Total DD>9% = lock all. 3+ positions same direction = correlation lock. 5+ open = lock.",rules:"Risk 4% daily max, 9% total. Hedge mode ON.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\Portfolio_Manager.mq5"},
+  "RSI_MA20_Bot":{logic:"RSI(14) < 30 AND Price > MA20 AND ADX > 20. Circuit Breaker: max 2 trades/day. MA50 filter.",rules:"Account 1 FTMO $10K. Win Rate 48.8%. DD 0.02%. USDJPY H1.",compilePath:"✅ Already compiled — running LIVE"},
+  "Trend_Lab":{logic:"EMA20 > EMA50 AND ADX > 25 AND H4 bias same direction. 0.3% risk per trade.",rules:"XAUUSD H1 only. PORTFOLIO_LOCKED. Max 1 concurrent.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\Trend_Lab.mq5"},
+  "BollingerRSI_Lab":{logic:"Price < BB Lower Band AND RSI < 35. Mean reversion. TP at middle band. SL outside band.",rules:"EURUSD H1. Contrarian strategy. PORTFOLIO_LOCKED.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\BollingerRSI_Lab.mq5"},
+  "Session_Breakout_Lab":{logic:"Asian session high/low range. London open 07:00-09:00 GMT breakout. Buystop above high + 5 pip buffer.",rules:"GBPUSD M15. Session filter 07:00-09:00 only.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\Session_Breakout_Lab.mq5"},
+  "EMA_Cross_Lab":{logic:"EMA9 crosses above EMA21 = Buy. Crosses below = Sell. MA200 filter.",rules:"GBPUSD H1. Trend following. PORTFOLIO_LOCKED.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\EMA_Cross_Lab.mq5"},
+  "MACD_Lab":{logic:"MACD crosses signal + MA200 filter. Histogram confirmation before entry.",rules:"Asset TBD H1. PORTFOLIO_LOCKED.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\MACD_Lab.mq5"},
+  "Stoch_Lab":{logic:"Stochastic(5,3,3) < 20 oversold buy. > 80 overbought sell. Wait for cross.",rules:"Asset TBD H1. PORTFOLIO_LOCKED.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\Stoch_Lab.mq5"},
+  "Sweep_SilverBullet":{logic:"Liquidity Sweep Detection → MSS Confirmation → FVG Entry. Killzone 10-11 AM NY. 266 lines MQL5.",rules:"EURUSD H1. Silver Bullet ICT. PORTFOLIO_LOCKED. Risk 0.3%.",compilePath:"C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\Sweep_SilverBullet.mq5"}
+};
+const projectDetailInfo={
+  "Trading System (2 FTMO)":{what:"מערכת מסחר אוטונומית על 2 חשבונות FTMO",files:["entry_monitor.py","RSI_MA20_Bot.mq5","daily_review.py","telegram_vip.py","etsy_uploader.py","affiliate_engine.py","bet_launcher.py","research_watch.py","auto_update.py","telegram_alerts.py","nasdaq_scanner.py"],pipeline:"setup_pipeline.bat — Task Scheduler 08:00+20:00",revenue:"$1,000-$4,000/חודש",next:"MetaEditor F4 → F7 Compile 8 בוטים",api:"— (MT5 native)",url:"—"},
+  "ICT Blog + WordPress":{what:"בלוג ICT/Trading על WordPress + Hostinger",files:["wp_auto_poster.py","gsc_indexer.py","wordpress_content/*.html"],pipeline:"wordpress_content/ + wp_auto_poster.py",revenue:"$100-$500/חודש (Affiliate)",next:"wp_auto_poster → Post #16 #17",api:"Hostinger ✅",url:"https://commotiai.com"},
+  "ai-commerce (GitHub)":{what:"אתר ai-commerce — HTML+CSS+JS, Dark RTL",files:["index.html","app.js","styles.css","monitor_dashboard.html"],pipeline:"CI/CD GitHub Actions → gh-pages",revenue:"כללי",next:"Claude API אמיתי בצ'אט",api:"GitHub Pages ✅",url:"https://botbikamordehai2-sketch.github.io/ai-commerce/"},
+  "Diamond Scanner":{what:"סורק 50+ נכסים — Confluence Score, התראות טלגרם 08:30",files:["diamond_scanner.py","tradingview_idea.py","blog_scanner.py"],pipeline:"setup_pipeline.bat — Task Scheduler 08:30",revenue:"—",next:"— (רץ אוטומטית)",api:"Telegram ✅",url:"—"},
+  "Dropship Machine":{what:"אוטומציית דרופשיפ — סריקה, תוכן, מחירים, Profit Calc",files:["main.py","scanner.py","content_gen.py","price_tracker.py","profit_calc.py","publisher.py"],pipeline:"python main.py",revenue:"$0-$500/חודש",next:"python main.py —demo",api:"Anthropic ✅",url:"—"},
+  "Canva → Etsy":{what:"10 טמפלטים לקנבה + רשימות Etsy — מוכן להעלאה",files:["etsy_uploader.py","catalog.json"],pipeline:"etsy_uploader.py → Etsy API",revenue:"$300-$1,500/חודש",next:"העלה 10 listings",api:"Etsy ✅",url:"—"},
+  "tv_webhook":{what:"Flask server + Ngrok — מקבל alerts מ-TradingView",files:["run.py"],pipeline:"python run.py + Ngrok",revenue:"—",next:"— (רץ אוטומטית)",api:"Telegram ✅",url:"—"},
+  "Bet Scanner":{what:"Value betting + Kelly Criterion — the-odds-api",files:["scan_loop.py","value_model.py","arb_finder.py","backtest.py"],pipeline:"python scan_loop.py",revenue:"$200-$1,000/חודש",next:"python scan_loop.py",api:"the-odds-api ✅",url:"—"},
+  "Dark Web Monitor":{what:"HIBP API — בדיקת מיילים, דוח יומי, דף נחיתה",files:["darkweb_monitor.py","darkweb_promo.py","darkweb_landing.html"],pipeline:"Task Scheduler 10:00",revenue:"$50-$750/חודש",next:"HIBP API Key ($3.50)",api:"HIBP ⏳",url:"https://commotiai.com/dark-web-check/"},
+  "VIP Funnel":{what:"10 פוסטים לטלגרם + WhatsApp — Proof→FOMO→$29 CTA",files:["vip_funnel.py","welcome_bot.py"],pipeline:"python vip_funnel.py",revenue:"$500-$1,500/חודש",next:"WhatsApp 3-5 contacts",api:"Ko-fi+PayPal ✅",url:"—"},
+  "Affiliate Engine":{what:"6 תוכניות: FTMO, TradingView, IC Markets, Blueberry, Amazon, Hostinger",files:["affiliate_engine.py"],pipeline:"affiliate_engine.py",revenue:"$100-$500/חודש",next:"עדכן YOUR_ID",api:"Hostinger ✅",url:"—"},
+  "Research Scanner":{what:"סורק arXiv/SSRN — 10 מאמרים יומית",files:["research_scanner.py"],pipeline:"Task Scheduler 08:40",revenue:"—",next:"— (רץ אוטומטית)",api:"—",url:"—"}
+};
+let bots=[
+  {name:"Portfolio_Manager",account:"2 ($100K)",strategy:"מנהל תיקים — PORTFOLIO_LOCKED",asset:"EURUSD",tf:"M1",risk:"—",status:"מוכן",compiled:false,winRate:"—",deps:"כל 8 הבוטים"},
+  {name:"RSI_MA20_Bot",account:"1 ($10K)",strategy:"RSI + MA20 פילטר",asset:"USDJPY",tf:"H1",risk:"0.3%",status:"פעיל",compiled:true,winRate:"48.8%",deps:"—"},
+  {name:"Trend_Lab",account:"2 ($100K)",strategy:"Trend + EMA20/50 + ADX>25",asset:"XAUUSD",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"BollingerRSI_Lab",account:"2 ($100K)",strategy:"Mean Reversion — BB+RSI",asset:"EURUSD",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"Session_Breakout_Lab",account:"2 ($100K)",strategy:"London Open — Asian Range Breakout",asset:"GBPUSD",tf:"M15",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"EMA_Cross_Lab",account:"2 ($100K)",strategy:"EMA9×EMA21 Crossover",asset:"GBPUSD",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"MACD_Lab",account:"2 ($100K)",strategy:"MACD + MA200 פילטר",asset:"לבחירה",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"Stoch_Lab",account:"2 ($100K)",strategy:"Stochastic Overbought/Oversold",asset:"לבחירה",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"},
+  {name:"Sweep_SilverBullet",account:"2 ($100K)",strategy:"Liquidity Sweep + MSS + FVG",asset:"EURUSD",tf:"H1",risk:"0.3%",status:"מוכן",compiled:false,winRate:"50-65%",deps:"PORTFOLIO_LOCKED"}
+];
+let tracks=[
+  {track:"חברת השקעות",status:"מחכה F7",api:"✅",code:"✅ 8 בוטים",launched:false,revenue:"$0",target:"$1,000-$4,000",next:"MetaEditor F7",block:"🔴 בלוק 1"},
+  {track:"Telegram VIP",status:"בתהליך",api:"✅",code:"✅ vip_funnel.py",launched:true,revenue:"$0",target:"$500-$1,500",next:"WhatsApp contacts",block:"🔴 בלוק 2"},
+  {track:"Etsy",status:"מוכן",api:"✅",code:"✅ etsy_uploader.py",launched:false,revenue:"$0",target:"$300-$1,500",next:"העלה 10 listings",block:"🔴 בלוק 2"},
+  {track:"שותפים",status:"מוכן",api:"✅",code:"✅ affiliate_engine.py",launched:false,revenue:"$0",target:"$100-$500",next:"עדכן YOUR_ID",block:"🟡 בלוק 3"},
+  {track:"סורק הימורים",status:"מוכן",api:"✅",code:"✅ bet_launcher.py",launched:false,revenue:"$0",target:"$200-$1,000",next:"python scan_loop.py",block:"🟡 בלוק 3"},
+  {track:"Dark Web",status:"מוכן",api:"⏳",code:"✅ darkweb_monitor.py",launched:false,revenue:"$0",target:"$50-$750",next:"HIBP API Key",block:"🔴 בלוק 2"},
+  {track:"דרופשיפ",status:"מוכן",api:"✅",code:"✅ main.py",launched:false,revenue:"$0",target:"$0-$500",next:"python main.py",block:"🔴 בלוק 2"}
+];
+let projects=[
+  {name:"מערכת מסחר (2 FTMO)",status:"פעיל",files:"entry_monitor.py + 8 bots",pipeline:"setup_pipeline.bat",revenue:"Track 1",priority:"🔴 בלוק 1",next:"MetaEditor F7",key:"Trading System (2 FTMO)"},
+  {name:"בלוג ICT + WordPress",status:"פעיל",files:"wp_auto_poster.py",pipeline:"Task Scheduler",revenue:"Track 4",priority:"🟡 בלוק 3",next:"Post 16 העלאה",key:"ICT Blog + WordPress"},
+  {name:"ai-commerce (GitHub)",status:"פעיל gh-pages",files:"index.html + app.js",pipeline:"CI/CD Actions",revenue:"כללי",priority:"🟢 בלוק 4",next:"Claude API",key:"ai-commerce (GitHub)"},
+  {name:"סורק יהלומים",status:"פעיל 08:30",files:"diamond_scanner.py",pipeline:"Task Scheduler",revenue:"—",priority:"✅ הושלם",next:"—",key:"Diamond Scanner"},
+  {name:"מכונת דרופשיפ",status:"מוכן",files:"main.py + scanner.py",pipeline:"python main.py",revenue:"Track 7",priority:"🔴 בלוק 2",next:"python main.py",key:"Dropship Machine"},
+  {name:"Canva → Etsy",status:"מוכן",files:"etsy_uploader.py",pipeline:"etsy_uploader.py",revenue:"Track 3",priority:"🔴 בלוק 2",next:"העלה 10 listings",key:"Canva → Etsy"},
+  {name:"tv_webhook",status:"פעיל",files:"run.py + Flask",pipeline:"Ngrok",revenue:"—",priority:"✅ הושלם",next:"—",key:"tv_webhook"},
+  {name:"סורק הימורים",status:"מוכן",files:"scan_loop.py",pipeline:"python scan_loop.py",revenue:"Track 5",priority:"🟡 בלוק 3",next:"הרץ scan_loop.py",key:"Bet Scanner"},
+  {name:"Dark Web Monitor",status:"מוכן",files:"darkweb_monitor.py",pipeline:"Task Scheduler 10:00",revenue:"Track 6",priority:"🔴 בלוק 2",next:"HIBP API Key",key:"Dark Web Monitor"},
+  {name:"VIP Funnel",status:"בתהליך",files:"vip_funnel.py",pipeline:"CI/CD Actions",revenue:"Track 2",priority:"🔴 בלוק 2",next:"WhatsApp contacts",key:"VIP Funnel"},
+  {name:"שותפים",status:"מוכן",files:"affiliate_engine.py",pipeline:"affiliate_engine.py",revenue:"Track 4",priority:"🟡 בלוק 3",next:"עדכן YOUR_ID",key:"Affiliate Engine"},
+  {name:"סורק מחקרים",status:"פעיל 08:40",files:"research_scanner.py",pipeline:"Task Scheduler",revenue:"—",priority:"✅ הושלם",next:"—",key:"Research Scanner"}
+];
+let messages=[
+  {title:"MetaEditor F7 — 8 בוטים ממתינים",body:"נתיב: C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\",cat:"⚠️ חסום",time:"03/05 04:30"},
+  {title:"vip_funnel.py — רץ בהצלחה",body:"Post 1-3 היום, 4-7 מחר, 8-10 יום 3. WhatsApp: שלח ל-3-5 אנשי קשר.",cat:"✅ הושלם",time:"03/05 01:52"},
+  {title:"GitHub Pages — פעיל",body:"https://botbikamordehai2-sketch.github.io/ai-commerce/ — gh-pages, Deploy from branch",cat:"✅ הושלם",time:"03/05 01:49"},
+  {title:"Monday.com — 3 אוטומציות LIVE",body:"1. Status Watcher 2. Revenue > $0 3. Daily 08:00 F7 reminder",cat:"🤖 בוטים",time:"03/05 05:12"},
+  {title:"Anthropic API Key — פעיל",body:"Key ב-tokens.txt. Dropship Machine מוכן. Rule #2: Key NOT in code.",cat:"💰 רווח",time:"01/05 19:55"},
+  {title:"Path 3 COMPLETE — 4/4 API Keys",body:"Anthropic, the-odds-api, Etsy, Ko-fi+PayPal — כל ה-API Keys פעילים.",cat:"💰 רווח",time:"01/05 21:30"},
+  {title:"Dark Web Service — דף נחיתה LIVE",body:"commotiai.com/dark-web-check/ — HIBP API ממתין.",cat:"📁 פרויקט",time:"02/05 23:00"},
+  {title:"4-Floor Architecture — מסונכרן",body:"NotebookLM → Gemini → Gems → Workspace. MASTER_CONTEXT.md מקור אמת יחיד.",cat:"📁 פרויקט",time:"03/05 01:30"}
+];
+let currentView='dashboard';
+const compiledCount=()=>bots.filter(b=>b.compiled).length;
+const readyBots=()=>bots.filter(b=>b.status==='מוכן'&&!b.compiled).length;
+
+function statusTag(s){
+  if(s.includes('פעיל')) return `<span class="tag tag-green"><span class="dot dot-green"></span>${s}</span>`;
+  if(s==='מוכן') return `<span class="tag tag-blue"><span class="dot dot-blue"></span>${s}</span>`;
+  if(s==='בתהליך') return `<span class="tag tag-green"><span class="dot dot-green"></span>${s}</span>`;
+  if(s.includes('מחכה')) return `<span class="tag tag-yellow"><span class="dot dot-yellow"></span>${s}</span>`;
+  if(s.includes('הושלם')) return `<span class="tag tag-gray">${s}</span>`;
+  return `<span class="tag tag-gray">${s}</span>`;
+}
+function blockTag(b){
+  if(b.includes('🔴')) return `<span class="tag tag-red">${b}</span>`;
+  if(b.includes('🟡')) return `<span class="tag tag-yellow">${b}</span>`;
+  if(b.includes('🟢')) return `<span class="tag tag-blue">${b}</span>`;
+  return `<span class="tag tag-gray">${b}</span>`;
+}
+function renderDashboard(){
+  return `
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-label">סה"כ בוטים</div><div class="stat-value" style="color:var(--accent)">${bots.length}</div><div class="stat-sub">${compiledCount()} Compiled | ${readyBots()} ממתינים</div></div>
+      <div class="stat-card"><div class="stat-label">מסלולי רווח</div><div class="stat-value" style="color:var(--yellow)">${tracks.length}</div><div class="stat-sub">6 מוכנים | 1 מחכה API</div></div>
+      <div class="stat-card"><div class="stat-label">הכנסה חודשית</div><div class="stat-value" style="color:var(--red)">$0</div><div class="stat-sub">פוטנציאל: $2,100-$8,500</div></div>
+      <div class="stat-card"><div class="stat-label">פרויקטים פעילים</div><div class="stat-value" style="color:var(--green)">7</div><div class="stat-sub">13 סה"כ | 6 מוכנים</div></div>
+    </div>
+    <div class="msg" style="border-color:var(--red);">
+      <div class="msg-header"><div class="msg-avatar" style="background:var(--red);">⚠️</div><div><span class="msg-name">Blocker: MetaEditor F7</span><span class="msg-time"> — 10 דקות</span></div></div>
+      <div class="msg-body">${readyBots()} בוטים ממתינים ל-Compile. נתיב: <code>C:\\Users\\gfdh5555\\AppData\\Roaming\\MetaQuotes\\Terminal\\81A933A9AFC5DE3C23B15CAB19C63850\\MQL5\\Experts\\</code></div>
+    </div>
+    <h3 style="margin:20px 0 12px;font-size:15px;">📬 הודעות אחרונות</h3>
+    ${messages.slice(0,5).map(m=>`<div class="msg"><div class="msg-header"><div class="msg-avatar" style="background:var(--accent);">${m.cat[0]}</div><div><span class="msg-name">${m.cat}</span><span class="msg-time"> — ${m.time}</span></div></div><div class="msg-body"><b>${m.title}</b><br>${m.body.substring(0,120)}...</div></div>`).join('')}
+  `;
+}
+function renderProjects(){
+  return `<div class="table-wrap"><table><thead><tr><th>פרויקט</th><th>סטטוס</th><th>קבצים</th><th>Pipeline</th><th>הכנסה</th><th>עדיפות</th><th>צעד הבא</th></tr></thead><tbody>${projects.map(p=>`<tr class="clickable" onclick="openProject('${p.key}')"><td><b>${p.name}</b></td><td>${statusTag(p.status)}</td><td style="font-size:13px;color:var(--text2)">${p.files}</td><td style="font-size:13px;color:var(--text2)">${p.pipeline}</td><td>${p.revenue}</td><td>${blockTag(p.priority)}</td><td style="font-size:13px;color:var(--text2)">${p.next}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function renderBots(){
+  return `<div class="table-wrap"><table><thead><tr><th>בוט</th><th>חשבון</th><th>אסטרטגיה</th><th>נכס</th><th>TF</th><th>ריסק</th><th>סטטוס</th><th>Compiled</th><th>Win Rate</th></tr></thead><tbody>${bots.map(b=>`<tr class="clickable" onclick="openBot('${b.name}')"><td><b>${b.name}</b></td><td>${b.account}</td><td style="font-size:13px">${b.strategy}</td><td>${b.asset}</td><td>${b.tf}</td><td>${b.risk}</td><td>${statusTag(b.status)}</td><td>${b.compiled?'✅':'⏳'}</td><td>${b.winRate}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function renderTracks(){
+  return `<div class="table-wrap"><table><thead><tr><th>מסלול</th><th>סטטוס</th><th>API</th><th>קוד</th><th>הופעל?</th><th>הכנסה</th><th>יעד</th><th>צעד הבא</th><th>בלוק</th></tr></thead><tbody>${tracks.map(t=>`<tr><td><b>${t.track}</b></td><td>${statusTag(t.status)}</td><td>${t.api}</td><td style="font-size:13px">${t.code}</td><td>${t.launched?'🟢':'⏳'}</td><td style="font-weight:700;color:var(--red)">${t.revenue}</td><td>${t.target}</td><td style="font-size:13px">${t.next}</td><td>${blockTag(t.block)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function renderMessages(){
+  return `<div style="margin-bottom:16px;display:flex;gap:10px;"><input type="text" id="searchMsg" placeholder="🔍 חיפוש..." style="max-width:300px;" oninput="filterMsgs()"><button class="btn btn-primary" onclick="openAddMessage()">➕ הודעה חדשה</button></div><div id="msgList">${msgRender()}</div>`;
+}
+function msgRender(list){
+  const arr=list||messages;
+  return arr.map((m,i)=>`<div class="msg"><div class="msg-header"><div class="msg-avatar" style="background:var(--accent);">${m.cat[0]}</div><div><span class="msg-name">${m.cat}</span><span class="msg-time"> — ${m.time}</span></div></div><div class="msg-body"><b>${m.title}</b><br>${m.body}</div><div style="margin-top:10px;"><button class="btn" style="padding:4px 12px;font-size:13px;" onclick="deleteMessage(${i})">🗑️ מחק</button></div></div>`).join('');
+}
+function filterMsgs(){
+  const q=document.getElementById('searchMsg').value;
+  if(!q) return document.getElementById('msgList').innerHTML=msgRender();
+  const f=messages.filter(m=>m.title.includes(q)||m.body.includes(q)||m.cat.includes(q));
+  document.getElementById('msgList').innerHTML=msgRender(f);
+}
+function renderMemory(){
+  return `
+    <div class="msg"><div class="msg-header"><div class="msg-avatar">🧠</div><div><span class="msg-name">4 קבצי זיכרון</span></div></div><div class="msg-body"><code>memory/projects_status.md</code> — 13 פרויקטים<br><code>memory/next_actions.md</code> — 4 בלוקים<br><code>memory/decisions_log.md</code> — יומן החלטות<br><code>memory/architecture.md</code> — ארכיטקטורה + Kelly + EU AI<br><br><b>מקורות:</b> GitHub, Google Drive, Monday.com, Notion</div></div>
+    <div class="msg"><div class="msg-header"><div class="msg-avatar">🔗</div><div><span class="msg-name">Monday.com WORKFLOW</span></div></div><div class="msg-body"><b>Board:</b> <code>https://botbikamordehai2s-team.monday.com/ai_workflows</code><br><b>3 אוטומציות LIVE:</b> Status Watcher, Revenue Watcher, Daily F7 08:00</div></div>
+    <div class="msg"><div class="msg-header"><div class="msg-avatar">📁</div><div><span class="msg-name">קבצים</span></div></div><div class="msg-body"><code>monday_workflow_bots.csv</code> (9)<br><code>monday_workflow_tracks.csv</code> (7)<br><code>monday_workflow_projects.csv</code> (12)<br><code>notion.html</code> — אפליקציית ניהול</div></div>
+    <div class="msg"><div class="msg-header"><div class="msg-avatar">📡</div><div><span class="msg-name">שירותים פעילים</span></div></div><div class="msg-body"><a href="https://botbikamordehai2-sketch.github.io/ai-commerce/" target="_blank" style="color:var(--accent);">GitHub Pages Dashboard</a><br><a href="https://commotiai.com" target="_blank" style="color:var(--accent);">commotiai.com</a> (16 פוסטים)<br><a href="https://commotiai.com/dark-web-check/" target="_blank" style="color:var(--accent);">Dark Web Landing</a><br><a href="https://ict-blog-bay.vercel.app" target="_blank" style="color:var(--accent);">ICT Blog Vercel</a></div></div>
+  `;
+}
+function openProject(key){
+  const p=projectDetailInfo[key]; if(!p) return;
+  document.getElementById('modalProjectContent').innerHTML=`
+    <div class="modal-title">📁 ${key} <button class="modal-close" onclick="closeModal('modalProject')">✕</button></div>
+    <div class="modal-grid">
+      <div class="modal-field"><label>מה זה</label><div class="val">${p.what}</div></div>
+      <div class="modal-field"><label>Pipeline</label><div class="val" style="font-size:14px;">${p.pipeline}</div></div>
+      <div class="modal-field"><label>פוטנציאל רווח</label><div class="val">${p.revenue}</div></div>
+      <div class="modal-field"><label>API</label><div class="val">${p.api}</div></div>
+    </div>
+    <div class="modal-section"><h4>📄 קבצים</h4><ul class="detail-list">${p.files.map(f=>`<li><span class="lbl">📄</span><span class="val">${f}</span></li>`).join('')}</ul></div>
+    <div class="modal-section"><h4>🎯 צעד הבא</h4><div class="val">${p.next}</div></div>
+    ${p.url!=='—'?`<div class="modal-section"><h4>🔗 קישור</h4><a href="${p.url}" target="_blank" style="color:var(--accent);">${p.url}</a></div>`:''}
+    ${p.revenue!=='—'?`<div style="margin-top:20px;"><button class="btn btn-primary" onclick="openAddMessage();closeModal('modalProject');document.getElementById('msgTitle').value='עדכון: ${key}';document.getElementById('msgCat').value='📁 פרויקט';">📝 הוסף עדכון</button></div>`:''}
+  `;
+  document.getElementById('modalProject').classList.add('active');
+}
+function openBot(name){
+  const b=bots.find(x=>x.name===name); const info=botDetailInfo[name]||{}; if(!b) return;
+  document.getElementById('modalProjectContent').innerHTML=`
+    <div class="modal-title">🤖 ${b.name} <button class="modal-close" onclick="closeModal('modalProject')">✕</button></div>
+    <div class="modal-grid">
+      <div class="modal-field"><label>חשבון</label><div class="val">${b.account}</div></div>
+      <div class="modal-field"><label>נכס</label><div class="val">${b.asset}</div></div>
+      <div class="modal-field"><label>Timeframe</label><div class="val">${b.tf}</div></div>
+      <div class="modal-field"><label>ריסק</label><div class="val">${b.risk}</div></div>
+    </div>
+    <div class="modal-section"><h4>🧠 אסטרטגיה + לוגיקה</h4><div class="val" style="font-size:14px;">${b.strategy}</div></div>
+    ${info.logic?`<div class="modal-section"><h4>📐 חוקים</h4><div class="val" style="font-size:14px;">${info.logic}</div></div>`:''}
+    ${info.rules?`<div class="modal-section"><h4>📏 הגדרות סיכון</h4><div class="val" style="font-size:14px;">${info.rules}</div></div>`:''}
+    <div class="modal-section"><h4>📁 קובץ</h4><div class="val" style="font-size:13px;">${info.compilePath||b.name+'.mq5'}</div></div>
+    <div style="margin-top:20px;display:flex;gap:10px;">
+      <button class="btn ${b.compiled?'btn-primary':'btn'}" style="flex:1;font-size:14px;" onclick="toggleCompiled('${b.name}');openBot('${b.name}');">${b.compiled?'✅ Compiled — בטל':'⏳ סמן Compiled'}</button>
+      <button class="btn btn-primary" style="font-size:14px;" onclick="openAddMessage();closeModal('modalProject');document.getElementById('msgTitle').value='עדכון: ${b.name}';document.getElementById('msgCat').value='🤖 בוטים';">📝 עדכון</button>
+    </div>
+  `;
+  document.getElementById('modalProject').classList.add('active');
+}
+function toggleCompiled(name){
+  const b=bots.find(x=>x.name===name);
+  if(b){b.compiled=!b.compiled;b.status=b.compiled?'Compiled ✅':'מוכן';save();}
+}
+function addBot(){
+  const n=document.getElementById('botName').value;if(!n) return alert('הזן שם בוט');
+  bots.push({name:n,account:document.getElementById('botAccount').value,strategy:document.getElementById('botStrategy').value||'—',asset:document.getElementById('botAsset').value||'TBD',tf:document.getElementById('botTF').value,risk:document.getElementById('botRisk').value+'%',status:'מוכן',compiled:false,winRate:'—',deps:'—'});
+  closeModal('modalBot');save();refresh();
+}
+function addMessage(){
+  const t=document.getElementById('msgTitle').value;if(!t) return alert('הזן כותרת');
+  const now=new Date();const time=now.toLocaleDateString('he-IL',{day:'2-digit',month:'2-digit'})+' '+now.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+  messages.unshift({title:t,body:document.getElementById('msgBody').value,cat:document.getElementById('msgCat').value,time});
+  closeModal('modalMsg');save();refresh();
+}
+function deleteMessage(i){messages.splice(i,1);save();refresh();}
+function openAddMessage(){document.getElementById('msgTitle').value='';document.getElementById('msgBody').value='';document.getElementById('msgCat').value='⚠️ חסום';document.getElementById('modalMsg').classList.add('active');}
+function openAddBot(){document.getElementById('botName').value='';document.getElementById('modalBot').classList.add('active');}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
+function exportCSV(){let csv='Bot,Account,Strategy,Asset,TF,Risk,Status,Compiled,WinRate,Deps\n';bots.forEach(b=>csv+=`"${b.name}","${b.account}","${b.strategy}","${b.asset}","${b.tf}","${b.risk}","${b.status}",${b.compiled},"${b.winRate}","${b.deps}"\n`);const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bots_export.csv';a.click();}
+function switchView(view){
+  currentView=view;
+  const titles={dashboard:'📊 דשבורד',projects:'📁 פרויקטים',bots:'🤖 בוטים',tracks:'💰 מסלולי רווח',messages:'💬 הודעות',memory:'🧠 זיכרון'};
+  document.getElementById('pageTitle').textContent=titles[view]||view;
+  const renders={dashboard:renderDashboard,projects:renderProjects,bots:renderBots,tracks:renderTracks,messages:renderMessages,memory:renderMemory};
+  document.getElementById('contentArea').innerHTML=renders[view]?renders[view]():'';
+  document.querySelectorAll('.sidebar-item').forEach(el=>el.classList.remove('active'));
+  const item=document.querySelector(`.sidebar-item[data-view="${view}"]`);if(item) item.classList.add('active');
+}
+function refresh(){switchView(currentView);}
+function save(){
+  localStorage.setItem('nb-bots',JSON.stringify(bots));
+  localStorage.setItem('nb-tracks',JSON.stringify(tracks));
+  localStorage.setItem('nb-projects',JSON.stringify(projects));
+  localStorage.setItem('nb-messages',JSON.stringify(messages));
+}
+function load(){
+  try{
+    const b=localStorage.getItem('nb-bots');if(b) bots=JSON.parse(b);
+    const t=localStorage.getItem('nb-tracks');if(t) tracks=JSON.parse(t);
+    const p=localStorage.getItem('nb-projects');if(p) projects=JSON.parse(p);
+    const m=localStorage.getItem('nb-messages');if(m) messages=JSON.parse(m);
+  }catch(e){}
+}
+load();switchView('dashboard');
+document.querySelectorAll('.sidebar-item').forEach(item=>{item.addEventListener('click',()=>switchView(item.dataset.view));});
+document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',function(e){if(e.target===this) this.classList.remove('active');});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.active').forEach(m=>m.classList.remove('active'));}});
+</script>
+</body>
+</html>

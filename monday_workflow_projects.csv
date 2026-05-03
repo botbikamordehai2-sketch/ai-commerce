@@ -1,0 +1,13 @@
+Project,Status,Files,Last_Activity,Next_Step,Pipeline,Revenue_Track,Priority,Owner,Last_Updated
+Trading_System_2FTMO,LIVE,entry_monitor.py + daily_review.py + 8 bots,Task Scheduler 08:00-20:00,MetaEditor F7 Compile 8 bots,setup_pipeline.bat,Track 1: Prop Firm,🔴 BLOCK 1,Moti,03/05/2026
+ICT_Blog_WordPress,LIVE 16 posts,wp_auto_poster.py + gsc_indexer.py,16 posts published,Post 16 upload + Settings Home,Task Scheduler,Track 4: Affiliate,🟡 BLOCK 3,Moti,03/05/2026
+ai_commerce_GitHub_Pages,LIVE gh-pages,index.html + app.js + styles.css,dashboard deployed,Claude API real chat,CI/CD GitHub Actions,General,🟢 BLOCK 4,Moti,03/05/2026
+Diamond_Scanner,LIVE 08:30,diamond_scanner.py,Task Scheduler daily,--,setup_pipeline.bat,Track 2: VIP funnel,✅ Done,Moti,03/05/2026
+Dropship_Machine,Ready,main.py + scanner.py + content_gen.py,Anthropic API tested,python main.py --demo,Manual,Track 7: Dropship,🔴 BLOCK 2,Moti,03/05/2026
+Canva_Etsy,Ready 10 templates,etsy_uploader.py + catalog.json,Etsy listings ready,Upload to Etsy,Manual,Track 3: Etsy,🔴 BLOCK 2,Moti,03/05/2026
+tv_webhook,LIVE,run.py + Flask,Ngrok running,--,Task Scheduler,General,✅ Done,Moti,03/05/2026
+Bet_Scanner,Ready,scan_loop.py + value_model.py,ODDS API active,python scan_loop.py,Manual,Track 5: Bet Scanner,🟡 BLOCK 3,Moti,03/05/2026
+Dark_Web_Monitor,Ready,darkweb_monitor.py + darkweb_promo.py,darkweb_landing.html LIVE,HIBP API Key,Task Scheduler 10:00,Track 6: Dark Web,🔴 BLOCK 2,Moti,03/05/2026
+VIP_Funnel,In Progress,vip_funnel.py + welcome_bot.py,Post 1-3 sent day 1,WhatsApp contacts + welcome_bot,CI/CD GitHub Actions,Track 2: Telegram VIP,🔴 BLOCK 2,Moti,03/05/2026
+Affiliate_Engine,Ready,affiliate_engine.py,Hostinger active,Update YOUR_ID in links,Manual,Track 4: Affiliate,🟡 BLOCK 3,Moti,03/05/2026
+Research_Scanner,LIVE 08:40,research_scanner.py,Task Scheduler daily,--,setup_pipeline.bat,General,✅ Done,Moti,03/05/2026
