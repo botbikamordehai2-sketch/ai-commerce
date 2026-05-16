@@ -27,7 +27,7 @@ SITES = {
     # Add more sites here (up to 100)
 }
 
-TELEGRAM_TOKEN = "8778948790:AAFQzzul1WNrfvqZbqtNeK_Y1B9BO10cZmA"
+TELEGRAM_TOKEN = "8649990727:AAGhe9h2o-ASVXoB_RL2sN3r1RbH6I6LqmA"
 CHAT_ID = "1246833993"
 LOG_FILE = Path(__file__).parent / "gsc_indexing_log.json"
 

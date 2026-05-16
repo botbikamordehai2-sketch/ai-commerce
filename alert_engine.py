@@ -21,7 +21,7 @@ if sys.platform == "win32":
 
 # ── Config ──────────────────────────────────────────────────
 PROJ_DIR  = Path(__file__).parent
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8778948790:AAFQzzul1WNrfvqZbqtNeK_Y1B9BO10cZmA")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8649990727:AAGhe9h2o-ASVXoB_RL2sN3r1RbH6I6LqmA")
 CHAT_ID   = os.getenv("ALL_CHAT_ID", "1246833993")
 BIAS_FILE = PROJ_DIR / "bias.json"
 VIP_FILE  = PROJ_DIR / "vip_subscribers.json"

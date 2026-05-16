@@ -1,4 +1,4 @@
-# הצעדים הבאים | לפי עדיפות
+# הצעדים הבאים | עדכון 03/05/2026
 
 ## 🔴 דחוף (היום)
 - [ ] Canva Assets → Etsy ($14.99) — 30 דקות
@@ -6,10 +6,12 @@
 
 ## 🟡 השבוע
 - [ ] ערוץ טלגרם → Autopublisher פעיל
-- [ ] GitHub push לai-commerce (תקן הרשאות 403)
-- [ ] Vercel לai-commerce
+- [ ] הירשם ל-Amazon Associates → קבל API Key
+- [ ] בניית Backend למוצרים אוטומטיים ב-ai-commerce
 
-## 🔵 אחר כך
-- [ ] Anthropic API Key → Dropship Machine
-- [ ] Etsy API Key → etsy_uploader.py
-- [ ] Claude API אמיתי בצ'אט של ai-commerce
+## ✅ הושלם
+- [x] ai-commerce נבנה (HTML/CSS/JS)
+- [x] GitHub push הצליח
+- [x] Vercel פריסה חיה
+- [x] Clone למחשב מקומי
+- [x] MASTER_CONTEXT.md + memory/ נוצרו
