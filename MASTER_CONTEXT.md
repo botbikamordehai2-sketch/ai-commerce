@@ -116,3 +116,4 @@ py send_vip_posts.py --posts 8-10
 - **26/05/2026 05:45** — 25/05 — entry_monitor תוקן. VIP Posts 1-3 נשלחו. daily_cadence + funnel_metrics + log_conversion נבנו
 - **26/05/2026 05:45** — 26/05 — Bet Scanner LIVE: 24 ARB + 117 VALUE. VIP Posts 4-7 נשלחו. Dashboard 12 תצוגות
 - **26/05/2026 05:45** — 27/05 — Ngrok + cockpit_api LIVE. AgentRouter (Perplexity+Gemini). memory_journal כותב ל-GitHub. MASTER_CONTEXT שוכתב לעברית
+- **26/05/2026 06:00** — 27/05 — VIP Posts 8-10 נשלחו. כל 10 פוסטי הפאנל הושלמו. Track 2 Telegram VIP — פאנל מלא LIVE
