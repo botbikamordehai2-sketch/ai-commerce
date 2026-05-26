@@ -113,3 +113,4 @@ py send_vip_posts.py --posts 8-10
 
 ## יומן סיכומים
 - **26/05/2026 05:24** — Cockpit LIVE
+- **26/05/2026 05:45** — 25/05 — entry_monitor תוקן. VIP Posts 1-3 נשלחו. daily_cadence + funnel_metrics + log_conversion נבנו
