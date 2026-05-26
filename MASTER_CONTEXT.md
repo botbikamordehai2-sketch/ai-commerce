@@ -1,813 +1,115 @@
-זיכרון עודכן:
-
-WordPress: 16 פוסטים חיים, commotiai.com פעיל
-odds-api key: סומן כ-✅ (קיים ב-tokens.txt)
-FVG Sentinel Bot #8-9 תועד עם כל הפרטים
-MASTER_CONTEXT URL שמור
-Priority הבאה: MetaEditor → F7 → קמפל Sweep_SilverBullet.mq5 (כולל DetectFVG # MASTER_CONTEXT — מוטי | עדכון 29/04/2026
-**הדבק את זה בתחילת כל שיחה עם Claude Code / Claude Chat / ChatGPT / Cline**
+# MASTER_CONTEXT.md — Trinity OS
+# מקור האמת הראשי של מוטי | עדכון: 27/05/2026
+# ⚠️ לא לשמור tokens/passwords בקובץ זה
 
 ---
 
-## מי אני
-- **שם:** מוטי | mbotbika9@gmail.com
-- **סביבה:** Windows 10, VS Code, Python 3.12
-- **רמה:** מתחיל-בינוני, מכיר Python בסיסי
+## זהות
+- **שם:** מוטי (Mordechai Botbika)
+- **אימייל:** mbotbika9@gmail.com
 - **GitHub:** botbikamordehai2-sketch
-- **כלים:** Claude Code (VS Code), Cline (VS Code), ChatGPT, Claude Web
+- **סביבה:** Windows 11, VS Code, Python 3.14
+- **רמה:** מתחיל-בינוני (Python), מתקדם (strategy)
 
 ---
 
-## כללי ברזל (חלים על כל מודל)
-1. **אל תריץ `mt5_bot.py` ישירות** — מכבה AutoTrading ב-MT5
-2. **לעולם אל תכניס API keys / סיסמאות לקבצי טקסט רגילים**
-3. **אותו מודל לא בונה וגם מבקר** — Claude Code בונה, Claude Chat מבקר
-4. **עדכן MASTER_CONTEXT.md בסוף כל סשן משמעותי**
-5. **Macro is King** — קונטקסט מאקרו קודם לדפוסים טכניים
-6. **ארכיטקטורת 4 הקומות:** 1.קרקוע (NotebookLM), 2.חקירה (Gemini), 3.מומחיות (Gems), 4.ביצוע (Workspace)
-7. **הנחיית AIM:** בכל משימה: Actor (שחקן), Input (קלט), Mission (משימה)
+## Revenue Tracks — 6 נתיבים
+
+| # | Track | סטטוס | פוטנציאל/חודש |
+|---|-------|--------|---------------|
+| 1 | Prop Firm (FTMO) | ✅ LIVE — RSI_MA20_Bot רץ, CB=2/day | $1K–$4K |
+| 2 | Telegram VIP | ✅ LIVE — @commotiai_free + VIP ערוצים | $500–$1.5K |
+| 3 | Etsy/Canva | 🟡 10 templates מוכנים, ממתין קמפיין | $300–$1.5K |
+| 4 | Affiliate | 🟡 ממתין Campaign IDs | $100–$500 |
+| 5 | Bet Scanner | ✅ LIVE — arb_finder.py, 24 ARB + 117 VALUE | $200–$1K |
+| 6 | Dark Web Monitor | 🟡 ממתין HIBP API ($3.50/mo) | $50–$750 |
+
+**הכנסה נוכחית: $0 (כל המערכות בנויות, לא הופעלו מסחרית)**
 
 ---
 
 ## פרויקטים פעילים
 
-### 1. Trading System ✅ LIVE
-**נתיב:** `C:\Users\gfdh5555\Desktop\projects\trading-system\`
-**סטטוס:** EA פעיל על MT5 FTMO $10,000 | entry_monitor.py רץ כל 15 דקות
-**קבצים מרכזיים:**
-- `entry_monitor.py` — סורק 15 נכסים, כותב signal files ל-MT5
-- `diamond_scanner.py` — 50+ נכסים, Confluence Score
-- `daily_review.py` — דוח יומי לטלגרם 08:00
-- `RSI_MA20_Bot.mq5` — EA פעיל USDJPY H1
-**חסר:**
-- Telegram VIP: FREE_CHAT_ID + VIP_CHAT_ID
-- Ko-fi link לערוץ VIP
-- ETSY_API_KEY
-- ODDS_API_KEY (~$50/חודש) לבוט הימורים
-**הצעד הבא:** Ko-fi (10 דקות) → Telegram VIP פעיל
+| פרויקט | נתיב | סטטוס |
+|--------|-------|--------|
+| Trading System | `signalforge-local\` | ✅ entry_monitor רץ |
+| ICT Blog + WordPress | commotiai.com | ✅ 16+ פוסטים |
+| Commerce Pipeline | `trinity-trading\` | ✅ Task Scheduler פעיל |
+| Cockpit Dashboard | `trinity-trading\project_dashboard.html` | ✅ 12 תצוגות, ngrok LIVE |
+| Telegram VIP | @commotiai_free + VIP | ✅ Posts 1-7 נשלחו |
+| Bet Scanner | `bet-scanner\arb_finder.py` | ✅ pre-match filter |
+| Job Scout | `trinity-trading\job_scout_scanner.py` | ✅ Remotive + RemoteOK |
+| AgentRouter | `trinity-trading\agents\router.py` | ✅ Perplexity + Gemini |
+| Memory Journal | `trinity-trading\memory_journal.py` | ✅ כותב ל-GitHub API |
 
 ---
 
-### 2. ICT Blog ✅ LIVE
-**URL:** https://ict-blog-bay.vercel.app
-**נתיב:** `C:\Users\gfdh5555\ict-blog\`
-**סטטוס:** 12 מאמרים פורסמו, Google Search Console מחובר
-**Autopublisher:** `C:\Users\gfdh5555\ict-blog\autopublisher\`
-- ✅ TELEGRAM_TOKEN: `8778948790:AAFQzzul1WNrfvqZbqtNeK_Y1B9BO10cZmA`
-- ✅ Bot: `@tradijfhng_alerts_2026_bot`
-- 🔴 חסר: ערוץ טלגרם (TELEGRAM_CHANNEL)
-**הצעד הבא:** צור ערוץ טלגרם → הוסף בוט כ-Admin → קבל chat_id → עדכן `.env`
+## תשתית טכנית
+
+| שירות | פרטים |
+|--------|--------|
+| Hosting | Hostinger Business ($18.99/mo) |
+| DB | SQLite (trinity_state.db) מקומי + Cloud SQL (GCP) עתידי |
+| API | FastAPI + Uvicorn על localhost:8000 |
+| Tunnel | Ngrok (Free — URL משתנה בהפעלה) |
+| Domains | commotiai.com + .org + .online |
+| Automation | Windows Task Scheduler |
 
 ---
 
-### 3. ai-commerce 🔨 בבנייה
-**URL עתידי:** https://botbikamordehai2-sketch.github.io/ai-commerce
-**נתיב שרת:** `/home/user/ai-commerce/` (Linux server — סשן Claude Code)
-**טכנולוגיה:** HTML + CSS + JS טהורים, עברית RTL, Dark Mode
-**פיצ'רים:**
-- Hero, קטגוריות, 12 מוצרים, AI Pick badges
-- עגלת קניות + localStorage
-- חיפוש חי (Ctrl+K)
-- מודל מוצר popup
-- מועדפים (❤️)
-- צ'אט AI (keywords, לא API אמיתי)
-- Scroll animations
-**סטטוס Git:** 3 commits מקומיים | push ממתין — נכשל 403
-**חסר:**
-- הרשאות push לגיטהאב
-- פריסה ב-GitHub Pages / Vercel
-- Claude API אמיתי בצ'אט
+## AI Team — חלוקת תפקידים
+
+| מודל | אחריות | חוזקה |
+|------|---------|--------|
+| **Claude Code** | שיפוץ + ארכיטקטורה | קוד נקי, security, design |
+| **OpenAI (GPT)** | תזמור + חשיבה | orchestration, planning |
+| **Gemini** | מהירות יישום | UI, bulk, 2M context |
+| **DeepSeek** | כמות + SEO | content, strategy, copy |
+| **Perplexity** | מחקר + אמת | real-time web search |
+| **Cline** | עריכה אוטונומית | large refactor, file ops |
+| **מורדכי** | אופרטור + החלטות | strategy, final call |
+
+**כלל חתימה:** כל מודל חותם בסוף צ'אט בשמו.
+**כלל זיכרון:** קרא MASTER_CONTEXT לפני כל פעולה. עדכן אחרי.
 
 ---
 
-### 4. Diamond Scanner ✅ רץ יומי
-**נתיב:** `C:\Users\gfdh5555\Desktop\projects\diamond-scanner\`
-**סטטוס:** Task Scheduler 08:30, שולח התראות לטלגרם
-**chat_id:** 1246833993
+## משימות ממתינות
+
+| עדיפות | משימה | מצב |
+|--------|--------|------|
+| 🔴 CRITICAL | MetaEditor F7 → Compile 8 בוטים (FTMO Account 2) | ממתין ידני |
+| 🟡 HIGH | VIP Posts 8-10: `py send_vip_posts.py --posts 8-10` | מחר 27/05 |
+| 🟡 HIGH | Import daily_cadence_task.xml → Task Scheduler | ממתין |
+| 🟠 MEDIUM | Cloud Run deploy: `bash scripts/deploy_cockpit.sh` | ממתין |
+| 🟠 MEDIUM | HIBP API Key ($3.50/חודש) | אופציונלי |
+| ⚪ LOW | Ngrok Pro לURL קבוע ($10/mo) | אופציונלי |
+
+**BLOCKED:** Meta (Facebook/Instagram) — אימות טלפוני חסום. דורש SIM אחר.
 
 ---
 
-### 5. Dropship Machine 🟡 ממתין API
-**נתיב:** `C:\Users\gfdh5555\Desktop\projects\dropship-machine\`
-**סטטוס:** 8+ commits, רץ מקומית
-**חסר:**
-- `ANTHROPIC_API_KEY` — מ-console.anthropic.com
-- `ETSY_API_KEY` — מ-developer.etsy.com
+## פקודות שימוש יומי
 
----
+```powershell
+# הפעל Cockpit
+cd C:\Users\User\Desktop\trinity-trading
+py cockpit_api.py
 
-### 6. Canva Assets 🟡 מוכן להעלאה
-**נתיב:** `C:\Users\gfdh5555\Desktop\projects\canva-assets\`
-**סטטוס:** TTH-002 מוכן, מחיר $14.99
-**מה צריך:**
-1. לצלם 10 תמונות מ-`etsy_images_dark.html`
-2. להעתיק טקסט מ-`TTH-002_ETSY_READY_HEBREW.txt`
-3. להדביק ל-Etsy ולפרסם
+# הפעל Ngrok (טרמינל נפרד)
+ngrok http 8000
 
----
+# Job Scout — סרוק משרות
+py job_scout_scanner.py
 
-### 7. tv_webhook — התראות TradingView
-**נתיב:** `C:\Users\gfdh5555\tv_webhook\`
-**סטטוס:** Flask server + Ngrok
-**הרצה:** `python run.py`
-**env:** TELEGRAM_TOKEN, NASDAQ_CHAT_ID=7509800337, ALL_CHAT_ID=1246833993
+# יומן זיכרון — הוסף סיכום
+py memory_journal.py --log "סיכום המפגש"
 
----
-
-## משתנים קריטיים
-```
-TELEGRAM_TOKEN=8778948790:AAFQzzul1WNrfvqZbqtNeK_Y1B9BO10cZmA
-ALL_CHAT_ID=1246833993
-NASDAQ_CHAT_ID=7509800337
-FTMO Account: 1513203570 | Balance: $10,000
-GitHub: botbikamordehai2-sketch
-```
-⚠️ **אל תשמור API keys כאן — רק כאן (env vars בלבד)**
-
----
-
-## סדר עדיפויות — מה ממתין לביצוע
-| # | משימה | זמן | פוטנציאל |
-|---|---|---|---|
-| 1 | Canva Assets → Etsy | 30 דקות | $14.99 מיידי |
-| 2 | Ko-fi → Telegram VIP | 10 דקות | $500-1,500/חודש |
-| 3 | ערוץ טלגרם → Autopublisher | 15 דקות | חשיפה לבלוג |
-| 4 | GitHub push + Vercel לai-commerce | 5 דקות | אתר חי |
-| 5 | Dropship Machine API Keys | 5 דקות | אוטומציה מלאה |
-
----
-
-## הוראות לכל מודל
-| מודל | תפקיד | מה לבקש |
-|---|---|---|
-| **Claude Code (VS Code)** | Builder — עורך קבצים, כותב קוד | "כתוב / תקן / הוסף קוד ב..." |
-| **Claude Chat (Web)** | Analyst — ביקורת, אסטרטגיה | "בדוק אם הגיוני, מצא חולשות" |
-| **ChatGPT** | Marketing — SEO, כתיבה שיווקית | "כתוב תיאור מוצר / פוסט" |
-| **Cline (VS Code)** | Executor — מריץ פקודות מקומיות | "הרץ / בדוק / חבר git remote" |
-
----
-
-## 🏗️ 4-Floor Intelligence Architecture
-
-| Floor | Tool | Job | שלך |
-|-------|------|-----|------|
-| **1** | **NotebookLM** | Grounding — דיוק, קבלות, ניתוח PDFs ומחקר ללא הזיות | העלה MASTER_CONTEXT.md + research |
-| **2** | **Gemini** | Exploration — 2M tokens, Deep Research, 5 שלבים | שאל שאלות, חפש דפוסים |
-| **3** | **Gems** | Specialists — "Moti's Macro Sentinel" | ראה מטה |
-| **4** | **Workspace** | Execution — Docs, Gmail, Drive, Meet, VS Code | ביצוע בפועל |
-
-### 🧠 AIM Framework (לכל משימה)
-| A | Actor | מי אתה? (שחקן) |
-| I | Input | מה קיבלת? (קלט, נתונים) |
-| M | Mission | מה לעשות? (משימה ברורה) |
-
----
-
-### 8. Moti's Macro Sentinel (Gem) ✅ LIVE
-**פלטפורמה:** Gemini Gems (Floor 3)
-**תפקיד:** Portfolio & Strategy Architect
-**הגדרה:**
-```
-Actor: Portfolio & Strategy Architect — אנליסט ראשי ICT/SMC
-Input:  MASTER_CONTEXT.md (9 פרויקטים), NASDAQ Scanner, 5 שלבים
-Mission: Daily Bias, ועדת חקירה, ניהול רב-ערוצי, ניתוח Risk
-Risk:   FTMO/Blueberry 4% DD יומי, Hedge $100K
-Tone:   עברית מקצועית, Level 999, RISK ON/OFF
-```
-**Knowledge base:** `MASTER_CONTEXT.md` מוזן כבסיס ידע קבוע
-
----
-
-## 📋 סיכום סשן — 30/04/2026 18:00-22:00 (Cline)
-
-### 💬 בקשת המשתמש
-"כל הפיצ'רים הקיימים, מבנה הקבצים, מה עוד לא נעשה, הצעד הבא המומלץ"
-
-### 📊 תמונת מצב מלאה — 9 פרויקטים + 5 מסלולי מוניטיזציה
-
-#### 🗂️ מבנה הקבצים (Desktop/projects/)
-| פרויקט | קבצים עיקריים | סטטוס |
-|--------|--------------|--------|
-| **trading-system/** | entry_monitor.py, RSI_MA20_Bot.mq5, daily_review.py, telegram_vip.py, etsy_uploader.py, affiliate_engine.py, bet_launcher.py, research_watch.py, auto_update.py, telegram_alerts.py, nasdaq_scanner.py | ✅ LIVE |
-| **diamond-scanner/** | diamond_scanner.py, tradingview_idea.py, blog_scanner.py | ✅ רץ יומי |
-| **bet-scanner/** | scan_loop.py, value_model.py, arb_finder.py, polymarket_scanner.py, backtest.py, steam_detector.py | 🟡 מחכה API |
-| **dropship-machine/** | main.py, scanner.py, content_gen.py, price_tracker.py, profit_calc.py, publisher.py | 🟡 מחכה API |
-| **canva-assets/** | catalog.json (10 מוצרים), TTH-002 + TTH-003 Etsy listings | 🟡 מוכן להעלאה |
-| **portfolio/** | index.html | 🟡 מחכה deploy |
-| **mega-store/** | (ריק) | ❌ לא פעיל |
-| **ai-commerce/** | index.html, app.js, styles.css, MASTER_CONTEXT.md | 🔨 בבנייה |
-| **ict-blog/** | Next.js, 13+ מאמרים | ✅ LIVE |
-
-#### ⚡ כל הפיצ'רים הקיימים (14 Done)
-1. entry_monitor.py — 15 נכסים, RSI+MA20+MA50, Circuit Breaker 2/day → ✅ LIVE
-2. RSI_MA20_Bot.mq5 — EA EURUSD H1, FTMO $10K, Blueberry compliance → ✅ LIVE
-3. daily_review.py — ועדת חקירה יומית + close_signals_auto() → ✅ LIVE
-4. telegram_alerts.py — BIAS reports + signals → ✅ LIVE
-5. nasdaq_scanner.py — DXY, VIX, NDX, SPX, 10Y → ✅ LIVE
-6. auto_update.py — 08:00 + 20:00 daily → ✅ LIVE
-7. 31 unit tests + run_checks.bat → ✅ PASSING
-8. telegram_vip.py — Free/VIP channels → ✅ בנוי (לא מופעל)
-9. etsy_uploader.py — CSV/MD ל-10 מוצרים → ✅ מוכן
-10. affiliate_engine.py — 5 תוכניות affiliate → ✅ מוכן (לא הופעל)
-11. bet_launcher.py — Value betting + Kelly → ✅ קוד מוכן
-12. research_watch.py — arXiv/SSRN scanner → ✅ LIVE
-13. ICT Blog — 13+ articles, Next.js + Vercel → ✅ LIVE
-14. Publify — publishing platform → ✅ LIVE
-
-#### 🔴 מה עוד לא נעשה (20 משימות — MASTER_PLAN.md)
-| # | משימה | זמן | Block |
-|---|--------|------|-------|
-| 1 | MT5: Compile RSI_MA20_Bot.mq5 (F7) | 2 דק' | BLOCK 1 |
-| 2 | the-odds-api.com API Key | 3 דק' | BLOCK 1 |
-| 3-6 | GitHub repos: diamond-scanner, bet-scanner, dropship-machine, portfolio | 10 דק' | BLOCK 2 |
-| 7 | Vercel deploy portfolio | 2 דק' | BLOCK 2 |
-| 8 | Etsy API Key | 3 דק' | BLOCK 3 |
-| 9 | Canva template links | 2 דק' | BLOCK 3 |
-| 10 | Upload 10 listings to Etsy ($2.00) | 5 דק' | BLOCK 3 |
-| 11 | Ko-fi signup | 2 דק' | BLOCK 4 |
-| 12 | Telegram channels (@motitrades_free, @motitrades_vip) | 5 דק' | BLOCK 4 |
-| 13 | Telegram VIP bot live | 3 דק' | BLOCK 4 |
-| 14-17 | Affiliate signups: FTMO, TradingView, IC Markets, Amazon | 5 דק' | BLOCK 5 |
-| 18 | Anthropic API Key | 2 דק' | BLOCK 5 |
-| 19 | Dropship Machine live | 3 דק' | BLOCK 6 |
-| 20 | Bet Scanner live (scan_loop.py) | 5 דק' | BLOCK 6 |
-
-#### 🎯 הצעד הבא המומלץ — BLOCK 1 (5 דקות, קריטי)
-1. **MT5 → MetaEditor (F4) → RSI_MA20_Bot.mq5 → F7 Compile** — EA לא ירוץ בלי compile (עודכן ל-Blueberry: drawdown 4%, margin 150%)
-2. **https://the-odds-api.com/ → Sign Up → API Key** — פותח Track 5 (Bet Scanner, $200-$1,000/חודש)
-
-#### 💰 פוטנציאל סופי: $2,100-$8,500/חודש
-| Track | פוטנציאל |
-|-------|----------|
-| 1. Prop Firm | $1,000-$4,000 |
-| 2. Telegram VIP | $500-$1,500 |
-| 3. Etsy | $300-$1,500 |
-| 4. Affiliate | $100-$500 |
-| 5. Bet Scanner | $200-$1,000 |
-
-### 🔑 Credentials (לא להכניס לקוד!)
-- GitHub Token (CLOUD-PUSH): שמור ב-`C:\Users\gfdh5555\tokens.txt`
-- Hostinger API Token: שמור ב-`tokens.txt`
-- Hostinger Referral: `REFERRALCODE=4GUBOTBIKXVG`
-- Hostinger MCP: `.mcp.json` ← 118 tools, stdio transport
-- עדכון אחרון ל-MASTER_CONTEXT: 01/05/2026 03:10
-
----
-
-## 📋 סיכום סשן — 01/05/2026 00:00-01:20 (Cline)
-
-### 🛒 רכישות Hostinger
-
-| רכישה | עלות | Invoice |
-|--------|------|---------|
-| **commotiai.com** (1 year) | $9.99 | — |
-| **commotiai.org** (1 year) | $7.99 | — |
-| **commotiai.online** (1 year) | $0.99 | — |
-| **Business Hosting** (1 month) | $18.99 | H_42408073 |
-| **Daily Backup** | $0.00 | — |
-| **סה"כ** | **$22.56 (~83 ₪)** | |
-
-### 🌐 איך 3 הדומיינים ישמשו (כל 9 הפרויקטים)
-| דומיין | פלטפורמה | שימוש |
-|--------|----------|-------|
-| **commotiai.com** | WordPress (Hostinger) | בלוג ICT/Trading ראשי, דף נחיתה, affiliate |
-| **commotiai.org** | WordPress (Hostinger) | חומרים חינוכיים, newsletters, ארכיון |
-| **commotiai.online** | GitHub Pages | Publify, Bet Scanner dashboard, Dropship Machine |
-
-### 🔧 מה נבנה בסשן הזה
-- ✅ `affiliate_engine.py` — 6 תוכניות: IC Markets, FTMO, TradingView, Blueberry, Amazon, **Hostinger** (`REFERRALCODE=4GUBOTBIKXVG`)
-- ✅ `affiliate_output/` רץ — HTML footer, CSV tracker, Newsletter archive
-- ✅ GitHub Token `CLOUD-PUSH` שמור ב-`tokens.txt`
-- 🟡 **WordPress** — ממתין להתקנה על commotiai.com (Business Hosting פעיל)
-
-### 🎯 הצעד הבא
-1. Hostinger → **Create site** → WordPress → `commotiai.com`
-2. בונים דף נחיתה + 5 פוסטים + affiliate footer
-3. DNS + GitHub Pages subdomains
-
----
-
-## 📋 סיכום סשן — 01/05/2026 06:00-11:00 (Claude Code)
-
-### 🤖 FTMO Account 2 — Portfolio of Bots
-
-**חשבון חדש:** `1513254752` — FTMO-Demo Hedge $100,000
-**מטרה:** Lab לניסוי 5 אסטרטגיות שונות במקביל
-
-### 🏗️ בוטים שנבנו (MQL5 Experts — FTMO Terminal)
-| קובץ | אסטרטגיה | נכס | ריסק |
-|------|-----------|-----|------|
-| `Portfolio_Manager.mq5` | **מנהל מרכזי** — PORTFOLIO_LOCKED | EURUSD M1 | — |
-| `Trend_Lab.mq5` | Trend + EMA20/50 + ADX>25 + H4 Bias | XAUUSD H1 | 0.3% |
-| `BollingerRSI_Lab.mq5` | Mean Reversion — BB+RSI | EURUSD H1 | 0.3% |
-| `Session_Breakout_Lab.mq5` | London Open — Asian Range Breakout | GBPUSD M15 | 0.3% |
-| `EMA_Cross_Lab.mq5` | Trend — EMA9×EMA21 Crossover | GBPUSD H1 | 0.3% |
-| `MACD_Lab.mq5` | MACD + MA200 Filter | לבחירה H1 | 0.3% |
-| `Stoch_Lab.mq5` | Stochastic Overbought/Oversold | לבחירה H1 | 0.3% |
-
-**נתיב:** `C:\Users\gfdh5555\AppData\Roaming\MetaQuotes\Terminal\81A933A9AFC5DE3C23B15CAB19C63850\MQL5\Experts\`
-
-### 🧠 ארכיטקטורה — Portfolio מבוסס Global Variables
-```
-Portfolio_Manager → מעדכן PORTFOLIO_LOCKED
-כל בוט → בודק GlobalVariableGet("PORTFOLIO_LOCKED") לפני כניסה
-
-חוקי נעילה:
-- הפסד יומי > 4% → נועל הכל
-- Drawdown כולל > 9% → נועל הכל
-- 3+ פוזיציות באותו כיוון → Correlation Lock
-- 5+ פוזיציות פתוחות → נועל
+# VIP Posts
+py send_vip_posts.py --posts 8-10
 ```
 
-### 📐 5 משפחות אסטרטגיה (Multi-Model Research)
-| משפחה | Hypothesis | פעיל כש |
-|--------|-----------|---------|
-| Trend Following | שוק ממשיך בכיוון | ADX > 25 |
-| Mean Reversion | מחיר חוזר לממוצע | ADX < 20 |
-| Breakout | פריצת רמה = המשך | אחרי דחיסה |
-| Session-Based | London Open = נזילות | 07:00-09:00 |
-| Multi-TF | H4 כיוון + H1 כניסה | Confluence |
-
-### 📋 Hands-Off Protocol (מוטי חתם)
-- ✅ מותר: לצפות בלוגים שבועית
-- ✅ מותר: שינוי הגדרות בסוף שבוע בלבד
-- ❌ אסור: לסגור עסקה ידנית בגלל "תחושה"
-- ❌ אסור: לכבות בוט במהלך drawdown < 5%
-- ❌ אסור: להגדיל לוטים אחרי רצף הצלחות
-
-### 🎯 הצעד הבא
-1. MetaEditor (F4) → קמפל את כל 6 הקבצים (F7, 0 errors)
-2. Refresh Navigator → גרור Portfolio_Manager על EURUSD M1
-3. גרור כל בוט על הגרף המתאים לו
-4. RSI_MA20_Bot נשאר על חשבון 1 ($10K) — לא נוגעים
-
 ---
-
-## 📋 סיכום סשן — 01/05/2026 01:00-02:00 (Cline) — WordPress + Affiliate
-
-### 🛒 רכישות Hostinger
-| רכישה | עלות | Invoice |
-|--------|------|---------|
-| commotiai.com (1 year) | $9.99 | — |
-| commotiai.org (1 year) | $7.99 | — |
-| commotiai.online (1 year) | $0.99 | — |
-| Business Hosting (1 month) | $18.99 | H_42408073 |
-| **סה"כ** | **$22.56 (~83 ₪)** | |
-
-### 🔧 WordPress Live
-- **URL:** commotiai.com/wp-admin
-- **Host:** Hostinger Business (Frankfurt), Premium Plan
-- **תוכן מוכן:** `wordpress_content/` — 3 קבצים
-  - `01_homepage_landing.html` — Hero + Stats + Newsletter
-  - `02_post_ict_silver_bullet.html` — ICT Silver Bullet Setup
-  - `03_post_ai_trading_2026.html` — AI Trading evolution
-- **Affiliate:** `affiliate_engine.py` — 6 תוכניות, Hostinger REFERRALCODE=4GUBOTBIKXVG
-
-### 🌐 3 דומיינים
-| דומיין | שימוש |
-|--------|-------|
-| commotiai.com | WordPress בלוג ICT/Trading ראשי |
-| commotiai.org | חומרים חינוכיים, newsletters |
-| commotiai.online | GitHub Pages — Publify, dashboards |
-
-### 🎯 צעד הבא
-1. Paste WordPress content → Pages / Posts
-2. Settings → Reading → Static Page → Home
-3. Install theme (GeneratePress / Kadence) + Newsletter plugin (MailPoet)
-4. Paste affiliate_footer.html to every post
-5. DNS + GitHub Pages subdomains
-
----
-
-## 🔄 SYNC — Cline → Claude Code (01/05 02:15)
-
-**WordPress עלה** על commotiai.com (Hostinger Business, Frankfurt) ✅
-
-### WordPress Content Pack — סטטוס מלא
-| # | קובץ | סטטוס |
-|---|------|--------|
-| 01 | homepage_landing.html | ✅ |
-| 02 | post_ict_silver_bullet.html | ✅ |
-| 03 | post_ai_trading_2026.html | ✅ תוקן |
-| 04-09 | category pages x6 | ✅ Claude Code |
-| 10 | affiliate_footer.html | ✅ Cline |
-| 11 | post_ftmo_week1.html | 🟡 Claude Code בונה |
-| 12 | post_dropship_guide.html | 🟡 Claude Code בונה |
-| 13 | post_diamond_scanner.html | 🟡 Claude Code בונה |
-| 14 | post_kelly_criterion.html | 🟡 Claude Code בונה |
-
-### נותר להגדרה ב-WordPress (מוטי)
-- Settings → Reading → Static Page → Home
-- Theme: GeneratePress / Kadence
-- Plugin: MailPoet (Newsletter)
-- הדבק תוכן מ-00_WORDPRESS_SETUP_GUIDE.md
-
----
-
-## ✅ TASK CHECKLIST — 01/05/2026 02:50 (BEFORE NEXT SESSION)
-
-### 🔴 שלב 1 — WordPress: Settings → Home (2 דקות)
-- [ ] כנס ל-https://commotiai.com/wp-admin
-- [ ] Settings → Reading
-- [ ] בחר "A static page"
-- [ ] Homepage: בחר "Home"
-- [ ] Save Changes
-- [ ] ודא: פתח commotiai.com — תראה את דף הבית
-
-### 🔴 שלב 2 — MetaEditor: Compile 7 Bots (10 דקות)
-נתיב: `C:\Users\gfdh5555\AppData\Roaming\MetaQuotes\Terminal\81A933A9AFC5DE3C23B15CAB19C63850\MQL5\Experts\`
-
-- [ ] MT5 → F4 (MetaEditor)
-- [ ] Compile (F7) — Portfolio_Manager.mq5
-- [ ] Compile (F7) — Trend_Lab.mq5
-- [ ] Compile (F7) — BollingerRSI_Lab.mq5
-- [ ] Compile (F7) — Session_Breakout_Lab.mq5
-- [ ] Compile (F7) — EMA_Cross_Lab.mq5
-- [ ] Compile (F7) — MACD_Lab.mq5
-- [ ] Compile (F7) — Stoch_Lab.mq5
-- [ ] ודא: 0 errors, 0 warnings בכל קובץ
-
-### 🟡 שלב 3 — Paste 10 WordPress Files (30 דקות)
-- [ ] Pages → Add New → Paste 01_homepage_landing.html
-- [ ] Posts → Add New → Paste 02_post_ict_silver_bullet.html
-- [ ] Posts → Add New → Paste 03_post_ai_trading_2026.html
-- [ ] Pages → Add New → Paste 04_category_trading.html
-- [ ] Pages → Add New → Paste 05_category_scanner.html
-- [ ] Pages → Add New → Paste 06_category_betting.html
-- [ ] Pages → Add New → Paste 07_category_templates.html
-- [ ] Pages → Add New → Paste 08_category_aitools.html
-- [ ] Pages → Add New → Paste 09_category_ict_smc.html
-- [ ] Paste 10_affiliate_footer.html at bottom of every post
-
-### 🟡 שלב 4 — Affiliate Links (5 דקות)
-- [ ] עדכן YOUR_ID ב-10_affiliate_footer.html (FTMO, TradingView, IC Markets, Blueberry, Amazon)
-- [ ] Hostinger — REFERRALCODE כבר מוכן ✅
-
-### 🟢 שלב 5 — Ko-fi + Telegram VIP (10 דקות)
-- [ ] https://ko-fi.com → Sign Up
-- [ ] עדכן KO_FI_LINK ב-telegram_vip.py
-- [ ] צור ערוצי Telegram (@motitrades_free, @motitrades_vip)
-- [ ] הרץ telegram_vip.py
-
----
-
-## 📋 SYNC — 01/05/2026 03:30 (Cline) — Email + MCP + Checklist
-
-### ✅ Email Setup Complete
-- **Email:** `moti@commotiai.com`
-- **Sender Name:** Moti | Commoti AI
-- **Host:** Hostinger Business (Free Email tier)
-- **Signature:** Moti — Commoti AI — Trading & AI Blog
-
-### ✅ Hostinger MCP Connected
-- **Server:** `.mcp.json` — 118 tools via stdio
-- **API Token:** שמור ב-`tokens.txt`
-- **Capabilities:** Deploy VPS, DNS, WordPress management, monitoring, backups
-
-### 📋 Remaining Priority Tasks (מוטי — Manual)
-| # | משימה | ⏱️ | Priority |
-|---|-------|:---:|:---:|
-| 1 | WordPress: Settings → Reading → Static Page → Home | 2 דק' | 🔴 |
-| 2 | MetaEditor: F7 Compile 7 bots (FTMO Account 2) | 10 דק' | 🔴 |
-| 3 | Paste 10 content files into WordPress | 30 דק' | 🟡 |
-| 4 | Update YOUR_ID in affiliate links | 5 דק' | 🟡 |
-| 5 | Ko-fi signup → Telegram VIP | 10 דק' | 🟢 |
-
-### 📊 Git Commits Tonight
-| Commit | Time | What |
-|--------|------|------|
-| 5376c59 | 22:00 | Full system review |
-| 59e8504 | 01:20 | Domains + affiliate |
-| 4a766de | 02:00 | FTMO bots + WordPress Live |
-| 008a95f | 02:45 | 4-Floor Architecture + Gem |
-| 8012029 | 02:50 | Task checklist |
-| 1ea4b96 | 03:10 | Hostinger API + MCP |
-
----
-
-## 📋 סיכום סשן — 01/05/2026 12:00-17:30 (Claude Code)
-
-### ✅ WordPress commotiai.com — 6 פוסטים חיים
-| ID | כותרת | URL |
-|----|--------|-----|
-| 6  | FTMO Challenge Week 1: RSI+MA20 EA | commotiai.com/ftmo-challenge-week-1... |
-| 11 | ICT Silver Bullet Setup | commotiai.com/ict-silver-bullet-setup-2/ |
-| 12 | How AI Is Changing Retail Trading in 2026 | commotiai.com/how-ai-is-changing-retail-trading-in-2026/ |
-| 13 | Diamond Scanner: How We Rank 50+ Assets | commotiai.com/diamond-scanner-how-we-rank-50-assets-every-morning/ |
-| 14 | Kelly Criterion: Optimal Position Sizing | commotiai.com/kelly-criterion-the-math-behind-optimal-position-sizing/ |
-| 15 | AI-Powered Dropshipping in 2026 | commotiai.com/ai-powered-dropshipping-in-2026-how-we-automated-product-research/ |
-
-**סקריפט אוטומציה:** `wp_auto_poster.py` — מעלה כל הפוסטים דרך WordPress REST API
-**WP App Password:** שמורה בסקריפט (mbotbika9@gmail.com)
-
-### ✅ TradingView MCP Jackson — מותקן
-**נתיב:** `C:\Users\gfdh5555\tradingview-mcp-jackson\`
-**מה זה:** קישור Claude Code ישירות ל-TradingView Desktop דרך CDP (port 9222)
-**יכולות:** קריאת גרף בזמן אמת, כתיבת Pine Script, הוספת אינדיקטורים בפקודה, morning_brief
-**rules.json:** מוגדר עם EURUSD, XAUUSD, GBPUSD, US100, USOIL + FTMO rules
-**MCP Config:** `C:\Users\gfdh5555\.claude\mcp.json` — server: tradingview
-
-### 🔴 נותר לפעול
-- [x] הורד TradingView Desktop ← **הותקן**
-- [ ] הפעל TradingView Desktop ← CDP — Microsoft Store גרסה חוסמת. צריך installer רגיל
-- [ ] MetaEditor: קמפל 7 בוטים (F7)
-- [ ] WordPress: Settings → Reading → Static Page → Home
-- [ ] עדכן YOUR_ID בקישורי affiliate
-
-### ✅ TradingView CDP — Lesson Learned
-- **Microsoft Store** חוסם CDP (Sandbox) — חייבים installer מ-`tradingview.com/desktop`
-- **live_sim.py + yfinance** ← נותן נתונים חיים טובים, לא חייבים TradingView
-
-### ✅ Post #16 — AI Small Team (Cline 16:15)
-- `16_post_ai_small_team.html` — "איך צוות של 10 אנשים משיג יותר ממחלקה שלמה"
-- AI: 5X לעובד טוב, 25X למצוין, 4 סוכני AI, AIM Framework
-- **Deployed:** GitHub + מוכן ל-WordPress
-
-### ✅ Research Scanner (סשן חדש 15:00)
-- `research_scanner.py` — סורק 10 מאמרים אקדמיים יומית, מחלץ יהלומים לבוטים, שולח לטלגרם
-- `run_research_scanner.bat` — Task Scheduler
-- Task Scheduler: **ResearchScanner** — 08:40 יומית
-- Packages: `pymupdf`, `beautifulsoup4`, `pypdf`
-
-### ✅ Live Simulation
-- `live_sim.py` + `backtester.py` — סימולציית מסחר חיה
-- Dashboard מעודכן ב-GitHub Pages
-
----
-
-## 📋 SYNC — 01/05/2026 13:30 (Cline) — Dashboard + Live Data
-
-### ✅ Trading Monitor Dashboard Built
-- **File:** `monitor_dashboard.html` — 2 FTMO accounts, 9 bots, dark RTL
-- **Deployed:** `gh-pages` branch — `https://botbikamordehai2-sketch.github.io/ai-commerce/`
-- **⚠️ Need:** GitHub Settings → Pages → Source: `gh-pages` → Save (משתמש)
-
-### 📡 Live Data Options
-| Method | Data | Cost |
-|--------|------|------|
-| **MT5 API (Python `MetaTrader5` package)** | Real tick data, P&L, positions, accounts | Free |
-| TradingView Webhook | Alerts only (one-way) | Free (exists: `tv_webhook`) |
-| yfinance | Stocks/ETFs, 15-min delay | Free (exists: `entry_monitor.py`) |
-
-**Next:** Build Python script to connect MT5 API → JSON → Dashboard live updates
-
-### 📊 Claude Code Updates (12:00-17:30)
-- ✅ 6 WordPress posts live on commotiai.com (via REST API)
-- ✅ `wp_auto_poster.py` — auto-upload script
-- ✅ TradingView MCP Jackson installed (CDP port 9222, real-time chart access)
-- 🟡 Need: TradingView Desktop download
-
-### 🎯 Combined Priority
-| # | Task | Owner | Time |
-|---|------|-------|------|
-| 1 | GitHub Pages: gh-pages → Save | 🧑 Moti | 1 min |
-| 2 | Download TradingView Desktop | 🧑 Moti | 5 min |
-| 3 | MetaEditor: F7 Compile 7 bots | 🧑 Moti | 10 min |
-| 4 | WordPress: Settings → Home | 🧑 Moti | 2 min |
-
----
-
-## 🔄 SYNC — Cline → Claude Code (01/05 16:30) — Post #16 + TV Lesson
-
-### 📝 Post #16 Added — AI Small Team (5X→25X Multiplier)
-**File:** `wordpress_content/16_post_ai_small_team.html`
-**Title:** "איך צוות של 10 אנשים משיג יותר ממחלקה שלמה: מודל ה-AI החדש"
-**Category:** AI & Business | **Tags:** AI, Automation, Small Teams, SEO
-
-**Content (5 sections):**
-- **25X Model:** 5X for good worker, 25X for excellent (Source: Aviv Nahum, Above Security)
-- **AI Negotiation:** Claude reads contracts, flags weak clauses
-- **AI Sales Script:** Preps culture-adapted pitch before meetings
-- **4 AI Agents Army:** Research → Draft → Fact-check → Edit (mirrors our 4-Floor Arch)
-- **Actionable:** 4 steps for tomorrow morning using AIM Framework
-
-**Format:** Hebrew RTL, Dark Mode, ready to paste into WordPress
-**Status:** Deployed to GitHub (`668f6b7`), NOT yet uploaded to WordPress
-
-### 📡 TradingView CDP — Root Cause Found
-- **Microsoft Store** version blocks CDP (Sandbox)
-- Need installer from `tradingview.com/desktop`
-- Meanwhile: `live_sim.py` + yfinance give good live data — no TV needed
-
-### 📊 WordPress Posts Status
-| # | File | Status |
-|---|------|--------|
-| 1-15 | Previous 6 + pages | ✅ Published by Claude Code |
-| **16** | **ai_small_team** | 🟡 **Ready — needs wp_auto_poster.py upload** |
-
-**Claude Code — you can upload this post using your existing `wp_auto_poster.py` script.**
-
----
-
-## 🔄 SYNC — 01/05/2026 19:55 (Cline) — Path 3 Unlocked: Anthropic API Key
-
-### 🔑 Anthropic API Key — Active
-- **Key saved:** `C:\Users\gfdh5555\tokens.txt` (line 3)
-- **Dropship Machine:** Tested with `--demo --dry-run` — scanner runs, API recognized
-- **Run full:** `set ANTHROPIC_API_KEY=... && python main.py`
-- **Rule #2:** Key NOT in code — in `tokens.txt` only
-
-### 📦 What's Now Unlocked
-| System | File | Status |
-|--------|------|--------|
-| Dropship Machine | `dropship-machine/main.py` | ✅ Ready to run |
-| Content Generator | `dropship-machine/content_gen.py` | ✅ Claude API |
-| AI Chat (ai-commerce) | `app.js` | 🟡 Needs Claude API integration |
-| Auto Daily Bias | `nasdaq_scanner.py` → Claude | 🟡 Path 1 next |
-
-### 🎯 Current Status
-| Path | Progress |
-|------|----------|
-| **Path 3** — API Keys | 🟢 Anthropic ✅ | 🟢 the-odds ✅ | � Etsy ✅ | 🟢 Ko-fi+PayPal ✅ |
-| **Path 2** — Liquidity Sweeps | ✅ Sweep_SilverBullet.mq5 built (266 lines) | 🟡 Needs F7 Compile |
-| **Path 1** — Macro Sync | 🟡 After Path 2 |
-
-### 🔑 All API Keys — Collectively Active
-| Key | Source | System Unlocked |
-|-----|--------|-----------------|
-| Anthropic | `tokens.txt` + `.env` | Dropship Machine, Content Gen |
-| the-odds-api | `.env` | Bet Scanner, Value Betting |
-| Etsy | `tokens.txt` + `.env` | 10 Canva Templates ($9.99-$79.99) |
-| Ko-fi + PayPal | Browser | Telegram VIP ($29/month) |
-
-**Path 3 = 100% Complete.** 3 API keys + 1 payment gateway. 🎯
-
-
----
-
-## 🔄 SYNC — Cline → Claude Code (01/05 21:30) — Path 2: Sweep_SilverBullet + Full Status
-
-### ✅ Path 3 — COMPLETE (Commit 187d3e2)
-4/4 API Keys + Payment Gateway:
-- Anthropic — Dropship Machine, Content Gen
-- the-odds-api — Bet Scanner ($200-$1,000/חודש)
-- Etsy — 10 Canva Templates ($300-$1,500/חודש)
-- Ko-fi + PayPal — Telegram VIP ($500-$1,500/חודש)
-
-### ✅ Path 2 — Sweep_SilverBullet.mq5
-**File:** `MQL5/Experts/Sweep_SilverBullet.mq5` (266 lines)
-**Logic:** Liquidity Sweep Detection → MSS Confirmation → Entry
-**Killzone:** 10-11 AM NY | **Pair:** EURUSD H1 | **Risk:** 0.3%
-**Portfolio:** Checks `PORTFOLIO_LOCKED` before entry
-
-### 🤖 Account 2 — 8 Bots (all need F7 Compile)
-1. Portfolio_Manager | 2. Trend_Lab | 3. BollingerRSI_Lab
-4. Session_Breakout_Lab | 5. EMA_Cross_Lab | 6. MACD_Lab
-7. Stoch_Lab | **8. Sweep_SilverBullet (NEW)**
-
-### 🎯 Priority Tasks (Claude Code / Moti)
-- [ ] MetaEditor → F7 Compile ALL 8 bots (0 errors each)
-- [ ] WordPress: Settings → Reading → Static Page → Home
-- [ ] GitHub Pages: Settings → gh-pages → Save
-- [ ] Post #16 — upload to WordPress via wp_auto_poster.py
-
-### 📊 Git Commits (15+ total)
-| Commit | Time | What |
-|--------|------|------|
-| 187d3e2 | 21:13 | Path 3 COMPLETE |
-| 6c29df2 | 19:55 | Anthropic API Key active |
-| cc802ff | 17:40 | 25X Productivity Dashboard |
-| 60018fc | 17:35 | 4 AI Agents + Contract Reader |
-| 4f5ed8a | 20:28 | the-odds discovered + Etsy |
-
-### 🔑 API Keys — Updated `.env`
-- **Anthropic:** Added to `tv_webhook/.env` — Dropship Machine ready
-- **the-odds-api:** Already in `.env` (line 12) — Bet Scanner ready ✅
-- **Dropship Machine:** `main.py` reads `ANTHROPIC_API_KEY` from env
-- **Bet Scanner:** `bet_launcher.py` reads `ODDS_API_KEY` from env
-
----
-
-## 🔄 SYNC — Claude Code (01/05 23:00-00:00) — Social + Bot Refinements
-
-### 📱 Social Posts — `social_posts.md`
-- 3 ציוצים X (Twitter) — Daily Bias, System overview, Tactical insight
-- WIN_RATE: 48.8%, DD: 0.02% on paper
-- Volume filter added to block Inducement traps
-
-### 🤖 Account 2 Bot Status (8 bots)
-| # | Bot | Status |
-|---|-----|--------|
-| 1-7 | Portfolio_Manager → Stoch_Lab | 🟡 Needs F7 Compile |
-| 8 | Sweep_SilverBullet | 🟡 Needs F7 Compile |
-
-### 🔜 Claude Code Next Tasks
-- `telegram_vip.bat` → Task Scheduler
-- ✅ VIP Funnel built: `vip_funnel.py` (10 posts + 3 WhatsApp)
-
----
-
-## 🔄 SYNC — 02/05/2026 13:30 (Cline) — VIP Funnel + Full Execution Status
-
-### ✅ VIP Sales Funnel Built
-**File:** `vip_funnel.py` (212 lines, commit `948d4a2`)
-**Purpose:** Convert free Telegram viewers → $29 VIP members
-**Contents:** 10 Telegram posts (Proof → Value → FOMO → Scarcity → Close) + 3 WhatsApp invite messages
-
-### 📊 Actual Revenue Status (Be Honest)
-| Track | Code | API Key | Launched? | Revenue |
-|-------|------|---------|:---:|:---:|
-| **2. Telegram VIP** | `telegram_vip.py` ✅ | Ko-fi+PayPal ✅ | ⏳ Run it | $0 |
-| **3. Etsy** | `etsy_uploader.py` ✅ | Etsy API ✅ | ⏳ Run it | $0 |
-| **4. Affiliate** | `affiliate_engine.py` ✅ | Hostinger ✅ | ⏳ Update IDs | $0 |
-| **5. Bet Scanner** | `bet_launcher.py` ✅ | ODDS_API ✅ | ⏳ Run it | $0 |
-
-### 🎯 Reality Check
-- System is 100% built. Code, keys, infrastructure — all done.
-- Revenue: $0. Nothing has been launched.
-- Bottleneck: NOT code. NOT keys. **Execution.** Starting 4 Python scripts.
-- Priority: **Track 2 (Telegram VIP)** — lowest barrier, fastest path to $29.
-
-### 🔴 One Action (Today)
-1. `python vip_funnel.py` — copy posts to @commotiai_free
-2. Post 1-3 today (every 2-3 hours)
-3. Send WhatsApp to 3 contacts
-
-### 🔴 One User Action (Blocking Everything)
-MetaEditor → F4 → F7 → 8 bots → 0 errors
-- Bet Scanner activation
-- Dropship Machine demo run
-- Final git commit
-
-### 🔴 Still Remaining (Moti — Manual)
-- [ ] MetaEditor → F7 Compile 8 bots (10 min)
-- [ ] GitHub Pages: Settings → gh-pages → Save (1 min)
-
-### 📊 Git Commits (18+)
-| Commit | Time | What |
-|--------|------|------|
-| 187d3e2 | 21:13 | Path 3 COMPLETE |
-| f5886f9 | 21:30 | Path 2 SYNC |
-| 75a2cd7 | 21:47 | Path 1 — daily_bias_ai.py |
-
----
-
-## 🔄 SYNC — 02/05/2026–03/05/2026 (Claude Code) — Dark Web Service + Pipeline
-
-### ✅ מה נבנה
-| קובץ | תיאור | סטטוס |
-|------|--------|--------|
-| `multi_strategy.py` שורה 172 | תוקן באג AttributeError (ev.get על string) | ✅ |
-| `setup_pipeline.bat` | הורץ — 4 Tasks פעילים ב-Task Scheduler | ✅ |
-| `darkweb_monitor.py` | בודק מיילים ב-HIBP API, שולח דוח לטלגרם VIP | ✅ מוכן |
-| `darkweb_promo.py` | פוסט פרסומי לערוץ FREE כל 3 ימים, 4 פוסטים בלופ | ✅ Task Scheduler 10:00 |
-| `darkweb_landing.html` | דף נחיתה cyber dark — עלה ל-commotiai.com/dark-web-check/ | ✅ LIVE |
-
-### 🌐 Dark Web Check — commotiai.com/dark-web-check/
-- דף חי, עיצוב dark, טופס FormSubmit → mbotbika9@gmail.com
-- Lead Magnet: בדיקה חינמית → הרשמה → ליד לערוץ VIP
-- Telegram promo אוטומטי כל 3 ימים
-
-### 🔴 נשאר
-- [ ] HIBP API Key ($3.50/חודש) — haveibeenpwned.com/API/Key → tokens.txt
-- [ ] MetaEditor → F7 → 8 בוטים
-- [ ] vip_funnel.py → הרץ
-
-### 💰 זרוע הכנסה חדשה: Dark Web Monitoring
-| שלב | זמן | הכנסה |
-|-----|-----|--------|
-| VIP Add-on ($10/חודש) | שבוע 1-3 | $50-200/חודש |
-| B2B Report (200-400 ₪/חודש) | חודש 1-2 | $300-750/חודש |
-
-### ✅ welcome_bot.py — רצף קבלת פנים
-- משתמש לוחץ `t.me/tradijfhng_alerts_2026_bot?start=darkweb`
-- הודעה 1 (מיידי) — ברוכים הבאים + הזמנה לערוץ
-- הודעה 2 (יום 3) — עדכון בדיקה + טיפ אבטחה
-- הודעה 3 (יום 7) — הצעת VIP $10/חודש
-- DB: `welcome_bot.db` (SQLite)
-
-*עדכון אחרון: 03/05/2026*
-
----
-
-## 🔄 SYNC — 03/05/2026 01:30 (Cline) — איחוד זיכרון + פריקת פרויקטים
-
-### ✅ מה נעשה
-- MASTER_CONTEXT.md נקרא מ-GitHub (`Invoke-RestMethod raw.githubusercontent.com`)
-- 3 קבצי משנה עודכנו: `projects_status.md`, `next_actions.md`, `decisions_log.md`
-- אסטרטגיית 4 בלוקים מוגדרת: Block 1 (קריטי), Block 2 (הכנסה מיידית), Block 3 (שבוע), Block 4 (אופטימיזציה)
-
-### 📊 תמונת מצב — 13 פרויקטים, 6 Revenue Tracks
-| Status | Projects |
-|--------|----------|
-| ✅ LIVE | Trading (2 FTMO), ICT Blog + WordPress (16 פוסטים), ai-commerce (gh-pages), Diamond Scanner, tv_webhook, Research Scanner, Portfolio Dashboard |
-| 🟢 Ready | Dropship Machine, Canva/Etsy, Bet Scanner, Dark Web Monitor, Telegram VIP, Affiliate Engine |
-| ⏳ API Pending | HIBP ($3.50/חודש) |
-
-### 🔴 מה קריטי עכשיו
-1. MetaEditor F7 → Compile 8 בוטים (10 דקות, מוטי)
-2. GitHub Pages ✅ פעיל
-3. `vip_funnel.py` ✅ הורץ — Action Plan פעיל
-
-### ✅ vip_funnel.py הורץ (03/05/2026)
-- Post 1-3 היום, 4-7 מחר, 8-10 יום 3
-- WhatsApp: שלח ל-3-5 אנשי קשר
-
-### 🔴 מחסום אחרון
-- [ ] MetaEditor → F7 → 8 בוטים (FTMO Account 2)
-
-*עדכון אחרון: 03/05/2026 AM*
-
 
 ## יומן סיכומים
 - **26/05/2026 05:24** — Cockpit LIVE
