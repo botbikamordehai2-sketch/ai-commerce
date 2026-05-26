@@ -119,3 +119,4 @@ py send_vip_posts.py --posts 8-10
 - **26/05/2026 06:00** — 27/05 — VIP Posts 8-10 נשלחו. כל 10 פוסטי הפאנל הושלמו. Track 2 Telegram VIP — פאנל מלא LIVE
 - **26/05/2026 06:01** — 27/05 09:xx — HANDOFF: מוטי יוצא מהבית. מצב: VIP Posts 1-10 הושלמו. Cockpit+ngrok פעיל. AgentRouter LIVE. משימה הבאה: MetaEditor F7 Compile 8 בוטים (ידני). אין משימות AI ממתינות דחופות.
 - **26/05/2026 11:22** — Private AI Hub: הוספת צוות ה-AI (OpenAI, Claude, Gemini, DeepSeek) וחיבור ל-PostgreSQL לשמירה וטעינה של היסטוריית שיחות באופן היררכי.
+- **26/05/2026 13:36** — 27/05 — AI Hub LIVE: SQLite persistence, Gemini→Perplexity fallback, MASTER_CONTEXT injection. כל 5 סוכנים עונים נכון
