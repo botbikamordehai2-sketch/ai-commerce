@@ -807,3 +807,7 @@ MetaEditor → F4 → F7 → 8 bots → 0 errors
 - [ ] MetaEditor → F7 → 8 בוטים (FTMO Account 2)
 
 *עדכון אחרון: 03/05/2026 AM*
+
+
+## יומן סיכומים
+- **26/05/2026 05:24** — Cockpit LIVE
